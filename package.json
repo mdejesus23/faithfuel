@@ -6,11 +6,13 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "deploy": "astro build && wrangler pages deploy dist/ --project-name faithfuel"
   },
   "dependencies": {
     "@astrojs/node": "^9.5.4",
     "@astrojs/preact": "^4.1.3",
+    "@astrojs/sitemap": "^3.7.0",
     "@lucide/astro": "^0.575.0",
     "@preact/signals": "^2.8.1",
     "@tailwindcss/typography": "^0.5.19",
