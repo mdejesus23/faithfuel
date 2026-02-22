@@ -140,7 +140,7 @@ export default function CheckoutForm() {
                   Size: {item.size} &times; {item.quantity}
                 </p>
                 <p class="text-accent mt-1 text-sm font-bold">
-                  ${(item.price * item.quantity).toFixed(2)}
+                  ₱{(item.price * item.quantity).toFixed(2)}
                 </p>
               </div>
             </li>
@@ -148,7 +148,7 @@ export default function CheckoutForm() {
         </ul>
         <div class="mt-4 flex items-center justify-between border-t border-gray-200 pt-4">
           <span class="font-medium text-gray-500">Total</span>
-          <span class="text-2xl font-black">${cartTotal.value.toFixed(2)}</span>
+          <span class="text-2xl font-black">₱{cartTotal.value.toFixed(2)}</span>
         </div>
       </div>
 

@@ -1,10 +1,8 @@
 {
-  "name": "Armor Up Tee",
+  "name": "Faith Mode Activated Tee",
   "description": "Put on the full armor. This heavyweight black tee features Ephesians 6:11 in a bold graphic print. Structured fit, durable weave — built for those who stand firm.",
-  "price": 34.99,
-  "images": [
-    "https://placehold.co/600x600/0a0a0a/f8fafc?text=Armor+Up+Tee"
-  ],
+  "price": 299,
+  "images": ["./images/thumb.jpg", "./images/main.jpg"],
   "sizes": ["S", "M", "L", "XL", "XXL"],
   "category": "graphic",
   "featured": true,

@@ -103,7 +103,7 @@ export default function CartDrawer() {
                       Size: {item.size}
                     </p>
                     <p class="text-accent mt-1 text-sm font-bold">
-                      ${(item.price * item.quantity).toFixed(2)}
+                      ₱{(item.price * item.quantity).toFixed(2)}
                     </p>
                     <div class="mt-2 flex items-center gap-2">
                       <button
@@ -161,7 +161,7 @@ export default function CartDrawer() {
             <div class="mb-4 flex items-center justify-between">
               <span class="text-sm text-gray-500">Subtotal</span>
               <span class="text-xl font-black">
-                ${cartTotal.value.toFixed(2)}
+                ₱{cartTotal.value.toFixed(2)}
               </span>
             </div>
             <a

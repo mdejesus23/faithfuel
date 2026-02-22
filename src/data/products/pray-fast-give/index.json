@@ -1,13 +1,11 @@
 {
-  "name": "Grace Graphic Tee",
+  "name": "Pray Fast Give Tee",
   "description": "Minimalist and meaningful. This warm cream tee features a hand-drawn cross graphic with the word GRACE underneath. Soft, breathable, and perfect for everyday wear.",
-  "price": 34.99,
-  "images": [
-    "https://placehold.co/600x600/fef9ef/78716c?text=Grace+Graphic+Tee"
-  ],
+  "price": 299,
+  "images": ["./images/thumb.jpg", "./images/main.jpg"],
   "sizes": ["XS", "S", "M", "L", "XL"],
   "category": "graphic",
-  "featured": false,
+  "featured": true,
   "inStock": true,
   "tags": ["grace", "graphic", "cream", "cross"]
 }

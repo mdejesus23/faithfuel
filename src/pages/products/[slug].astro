@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import MainLayout from '../../layouts/MainLayout.astro';
 import AddToCartButton from '../../components/cart/AddToCartButton';
 import { getCollection } from 'astro:content';
@@ -22,7 +23,7 @@ const related = allProducts
   .slice(0, 3);
 ---
 
-<MainLayout title={name} description={description} image={images[0]}>
+<MainLayout title={name} description={description}>
   <!-- Breadcrumb -->
   <div class="bg-surface border-b border-gray-100">
     <div class="mx-auto max-w-7xl px-4 py-3 sm:px-6 lg:px-8">
@@ -42,16 +43,41 @@ const related = allProducts
   <section class="bg-white py-14">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid items-start gap-12 md:grid-cols-2 lg:gap-20">
-        <!-- Image -->
-        <div class="sticky top-24">
-          <div class="bg-surface aspect-square overflow-hidden rounded-2xl">
-            <img
-              src={images[0]}
-              alt={name}
-              class="h-full w-full object-cover"
-              loading="eager"
-            />
+        <!-- Image Gallery -->
+        <div class="sticky top-24 flex flex-col gap-3">
+          <!-- Main image display -->
+          <div class="bg-surface aspect-square overflow-hidden rounded-2xl relative">
+            {images.map((img, i) => (
+              <Image
+                src={img}
+                alt={`${name} – view ${i + 1}`}
+                class={`h-full w-full object-cover transition-opacity duration-300 ${i === 0 ? '' : 'absolute inset-0 opacity-0 pointer-events-none'}`}
+                loading={i === 0 ? 'eager' : 'lazy'}
+                data-gallery-main={i}
+              />
+            ))}
           </div>
+
+          <!-- Thumbnails (only shown if more than one image) -->
+          {images.length > 1 && (
+            <div class="flex gap-2">
+              {images.map((img, i) => (
+                <button
+                  type="button"
+                  data-gallery-thumb={i}
+                  aria-label={`View image ${i + 1}`}
+                  class={`bg-surface aspect-square w-16 shrink-0 overflow-hidden rounded-lg border-2 transition-all focus:outline-none ${i === 0 ? 'border-accent' : 'border-transparent opacity-60 hover:opacity-100'}`}
+                >
+                  <Image
+                    src={img}
+                    alt={`${name} thumbnail ${i + 1}`}
+                    class="h-full w-full object-cover pointer-events-none"
+                    loading="lazy"
+                  />
+                </button>
+              ))}
+            </div>
+          )}
         </div>
 
         <!-- Info -->
@@ -79,7 +105,7 @@ const related = allProducts
                 id={product.id}
                 name={name}
                 price={price}
-                image={images[0]}
+                image={images[0].src}
                 sizes={sizes}
               />
             ) : (
@@ -181,7 +207,7 @@ const related = allProducts
                 class="group block overflow-hidden rounded-2xl border border-gray-100 bg-white transition-all hover:shadow-md"
               >
                 <div class="bg-surface aspect-square overflow-hidden">
-                  <img
+                  <Image
                     src={p.data.images[0]}
                     alt={p.data.name}
                     loading="lazy"
@@ -191,7 +217,7 @@ const related = allProducts
                 <div class="p-4">
                   <p class="text-sm font-bold">{p.data.name}</p>
                   <p class="text-accent mt-1 font-black">
-                    ${p.data.price.toFixed(2)}
+                    ₱{p.data.price.toFixed(2)}
                   </p>
                 </div>
               </a>
@@ -201,4 +227,30 @@ const related = allProducts
       </section>
     )
   }
+
+<script>
+  const mains = document.querySelectorAll<HTMLElement>('[data-gallery-main]');
+  const thumbs = document.querySelectorAll<HTMLButtonElement>('[data-gallery-thumb]');
+
+  thumbs.forEach((thumb) => {
+    thumb.addEventListener('click', () => {
+      const idx = thumb.dataset.galleryThumb;
+
+      mains.forEach((img) => {
+        const active = img.dataset.galleryMain === idx;
+        img.classList.toggle('opacity-0', !active);
+        img.classList.toggle('pointer-events-none', !active);
+        img.classList.toggle('absolute', !active);
+        img.classList.toggle('inset-0', !active);
+      });
+
+      thumbs.forEach((t) => {
+        const active = t.dataset.galleryThumb === idx;
+        t.classList.toggle('border-accent', active);
+        t.classList.toggle('border-transparent', !active);
+        t.classList.toggle('opacity-60', !active);
+      });
+    });
+  });
+</script>
 </MainLayout>

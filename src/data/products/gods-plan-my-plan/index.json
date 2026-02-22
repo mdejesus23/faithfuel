@@ -1,13 +1,11 @@
 {
-  "name": "Classic Faith Tee",
+  "name": "God's Plan My Plan Tee",
   "description": "A timeless white tee bearing the word FAITH in bold type. Cut from 100% ring-spun cotton for a soft, relaxed feel that gets better with every wash.",
-  "price": 29.99,
-  "images": [
-    "https://placehold.co/600x600/f1f5f9/1e293b?text=Classic+Faith+Tee"
-  ],
+  "price": 299,
+  "images": ["./images/thumb.jpg", "./images/main.jpg"],
   "sizes": ["XS", "S", "M", "L", "XL", "XXL"],
   "category": "essentials",
-  "featured": true,
+  "featured": false,
   "inStock": true,
   "tags": ["faith", "classic", "white", "essentials"]
 }
