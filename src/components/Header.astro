@@ -11,24 +11,24 @@ const navLinks = [
 const currentPath = Astro.url.pathname;
 ---
 
-<header class="fixed top-0 inset-x-0 z-30 bg-white/95 backdrop-blur-sm border-b border-gray-100">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-16">
+<header
+  class="fixed inset-x-0 top-0 z-30 border-b border-gray-100 bg-white/95 backdrop-blur-sm"
+>
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="flex h-16 items-center justify-between">
       <!-- Logo -->
-      <a href="/" class="text-xl font-black tracking-tight shrink-0">
+      <a href="/" class="shrink-0 text-xl font-black tracking-tight">
         Faith<span class="text-accent">Fuel</span>
       </a>
 
       <!-- Desktop Nav -->
-      <nav class="hidden md:flex items-center gap-8">
+      <nav class="hidden items-center gap-8 md:flex">
         {
           navLinks.map((link) => (
             <a
               href={link.href}
-              class={`text-sm font-medium transition-colors hover:text-accent ${
-                currentPath === link.href
-                  ? 'text-accent'
-                  : 'text-gray-600'
+              class={`hover:text-accent text-sm font-medium transition-colors ${
+                currentPath === link.href ? 'text-accent' : 'text-gray-600'
               }`}
             >
               {link.label}
@@ -44,7 +44,7 @@ const currentPath = Astro.url.pathname;
         <!-- Hamburger (mobile) -->
         <button
           id="menu-toggle"
-          class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+          class="rounded-lg p-2 transition-colors hover:bg-gray-100 md:hidden"
           aria-label="Toggle menu"
           aria-expanded="false"
         >
@@ -56,17 +56,25 @@ const currentPath = Astro.url.pathname;
             viewBox="0 0 24 24"
             stroke="currentColor"
           >
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"></path>
           </svg>
           <svg
             id="icon-close"
             xmlns="http://www.w3.org/2000/svg"
-            class="h-5 w-5 hidden"
+            class="hidden h-5 w-5"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
           >
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"></path>
           </svg>
         </button>
       </div>
@@ -74,13 +82,16 @@ const currentPath = Astro.url.pathname;
   </div>
 
   <!-- Mobile Nav -->
-  <div id="mobile-menu" class="hidden md:hidden border-t border-gray-100 bg-white">
-    <nav class="flex flex-col px-4 py-4 gap-1">
+  <div
+    id="mobile-menu"
+    class="hidden border-t border-gray-100 bg-white md:hidden"
+  >
+    <nav class="flex flex-col gap-1 px-4 py-4">
       {
         navLinks.map((link) => (
           <a
             href={link.href}
-            class={`px-3 py-2.5 rounded-lg text-sm font-medium transition-colors hover:bg-surface hover:text-accent ${
+            class={`hover:bg-surface hover:text-accent rounded-lg px-3 py-2.5 text-sm font-medium transition-colors ${
               currentPath === link.href
                 ? 'text-accent bg-orange-50'
                 : 'text-gray-700'
