@@ -1,0 +1,38 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import CheckoutForm from '../components/cart/CheckoutForm';
+---
+
+<MainLayout
+  title="Checkout"
+  description="Complete your FaithFuel order."
+>
+  <script
+    is:inline
+    slot="head"
+    src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+    async
+    defer
+  ></script>
+  <!-- Hero -->
+  <section class="bg-surface border-b border-gray-100 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="flex items-center gap-2 text-xs text-gray-400 mb-4">
+        <a href="/" class="hover:text-accent transition-colors">Home</a>
+        <span>/</span>
+        <span class="text-primary font-medium">Checkout</span>
+      </nav>
+      <h1 class="text-4xl font-black">Checkout</h1>
+      <p class="mt-2 text-gray-500 text-sm">
+        Review your order and enter your details. We'll handle the rest.
+      </p>
+    </div>
+  </section>
+
+  <!-- Checkout Form (Preact — reads cart from localStorage) -->
+  <section class="py-14 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <CheckoutForm client:load />
+    </div>
+  </section>
+</MainLayout>

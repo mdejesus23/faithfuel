@@ -1,0 +1,217 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import { getCollection } from 'astro:content';
+
+const allProducts = await getCollection('products');
+
+// Unique categories
+const categories = ['all', ...new Set(allProducts.map((p) => p.data.category))];
+---
+
+<MainLayout
+  title="Products"
+  description="Browse all FaithFuel Catholic-inspired t-shirts. Every purchase helps send a pilgrim to World Youth Day 2027 in Seoul."
+>
+  <!-- Hero -->
+  <section class="bg-surface border-b border-gray-100 py-14">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <p
+        class="text-accent mb-2 text-sm font-semibold tracking-widest uppercase"
+      >
+        Shop
+      </p>
+      <h1 class="text-4xl font-black sm:text-5xl">All Tees</h1>
+      <p class="mt-3 max-w-md text-gray-500">
+        {allProducts.length} designs. Every one intentional.
+      </p>
+    </div>
+  </section>
+
+  <!-- Filters + Grid -->
+  <section class="bg-white py-12">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <!-- Category filter -->
+      <div class="mb-10 flex flex-wrap gap-2" id="filter-bar">
+        {
+          categories.map((cat) => (
+            <button
+              data-filter={cat}
+              class={`filter-btn rounded-full border px-4 py-2 text-sm font-semibold capitalize transition-all ${
+                cat === 'all'
+                  ? 'bg-primary border-primary text-white'
+                  : 'border-gray-200 text-gray-600 hover:border-gray-400'
+              }`}
+            >
+              {cat}
+            </button>
+          ))
+        }
+      </div>
+
+      <!-- Grid -->
+      <div
+        class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+        id="product-grid"
+      >
+        {
+          allProducts.map((product) => (
+            <div data-category={product.data.category} class="product-item">
+              <ProductCard
+                id={product.id}
+                name={product.data.name}
+                description={product.data.description}
+                price={product.data.price}
+                image={product.data.images[0]}
+                sizes={product.data.sizes}
+                category={product.data.category}
+                inStock={product.data.inStock}
+              />
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- Empty state -->
+      <div id="empty-state" class="hidden py-20 text-center text-gray-400">
+        <p class="text-lg font-semibold">No products in this category yet.</p>
+      </div>
+
+      <!-- Pagination -->
+      <div id="pagination" class="mt-12 flex items-center justify-center gap-3">
+        <button
+          id="prev-page"
+          disabled
+          class="hover:border-primary hover:text-primary flex items-center gap-1.5 rounded-xl border border-gray-200 px-4 py-2 text-sm font-semibold text-gray-600 transition-colors disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-gray-200 disabled:hover:text-gray-600"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-4 w-4"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M15 19l-7-7 7-7"></path>
+          </svg>
+          Prev
+        </button>
+
+        <span
+          id="page-info"
+          class="min-w-22.5 text-center text-sm font-semibold text-gray-500"
+        >
+          Page 1 of 1
+        </span>
+
+        <button
+          id="next-page"
+          class="hover:border-primary hover:text-primary flex items-center gap-1.5 rounded-xl border border-gray-200 px-4 py-2 text-sm font-semibold text-gray-600 transition-colors disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-gray-200 disabled:hover:text-gray-600"
+        >
+          Next
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-4 w-4"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M9 5l7 7-7 7"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+</MainLayout>
+
+<script>
+  const ITEMS_PER_PAGE = 8;
+
+  let currentPage = 1;
+  let currentFilter = 'all';
+
+  const buttons = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
+  const items = document.querySelectorAll<HTMLElement>('.product-item');
+  const emptyState = document.getElementById('empty-state');
+  const pageInfo = document.getElementById('page-info');
+  const prevBtn = document.getElementById(
+    'prev-page',
+  ) as HTMLButtonElement | null;
+  const nextBtn = document.getElementById(
+    'next-page',
+  ) as HTMLButtonElement | null;
+  const pagination = document.getElementById('pagination');
+
+  function getFilteredItems(): HTMLElement[] {
+    return Array.from(items).filter(
+      (item) =>
+        currentFilter === 'all' || item.dataset.category === currentFilter,
+    );
+  }
+
+  function renderPage() {
+    const filtered = getFilteredItems();
+    const totalPages = Math.max(1, Math.ceil(filtered.length / ITEMS_PER_PAGE));
+    currentPage = Math.min(currentPage, totalPages);
+
+    const start = (currentPage - 1) * ITEMS_PER_PAGE;
+    const end = start + ITEMS_PER_PAGE;
+
+    items.forEach((item) => (item.style.display = 'none'));
+    filtered.slice(start, end).forEach((item) => (item.style.display = ''));
+
+    emptyState?.classList.toggle('hidden', filtered.length > 0);
+    pagination?.classList.toggle('hidden', totalPages <= 1);
+
+    if (pageInfo) pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
+    if (prevBtn) prevBtn.disabled = currentPage <= 1;
+    if (nextBtn) nextBtn.disabled = currentPage >= totalPages;
+  }
+
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      currentFilter = btn.dataset.filter ?? 'all';
+      currentPage = 1;
+
+      buttons.forEach((b) => {
+        b.classList.remove('bg-primary', 'text-white', 'border-primary');
+        b.classList.add('border-gray-200', 'text-gray-600');
+      });
+      btn.classList.add('bg-primary', 'text-white', 'border-primary');
+      btn.classList.remove('border-gray-200', 'text-gray-600');
+
+      renderPage();
+    });
+  });
+
+  prevBtn?.addEventListener('click', () => {
+    if (currentPage > 1) {
+      currentPage--;
+      renderPage();
+      document
+        .getElementById('product-grid')
+        ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+
+  nextBtn?.addEventListener('click', () => {
+    const totalPages = Math.ceil(getFilteredItems().length / ITEMS_PER_PAGE);
+    if (currentPage < totalPages) {
+      currentPage++;
+      renderPage();
+      document
+        .getElementById('product-grid')
+        ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+
+  // Initial render
+  renderPage();
+</script>

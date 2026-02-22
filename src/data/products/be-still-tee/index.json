@@ -1,0 +1,13 @@
+{
+  "name": "Be Still Tee",
+  "description": "Be still and know. Soft sage green with a delicate hand-lettered print. This lightweight tee is for those quiet, grounded moments — a wearable reminder to breathe and trust.",
+  "price": 29.99,
+  "images": [
+    "https://placehold.co/600x600/d1fae5/1e4a3a?text=Be+Still+Tee"
+  ],
+  "sizes": ["XS", "S", "M", "L", "XL", "XXL"],
+  "category": "essentials",
+  "featured": false,
+  "inStock": true,
+  "tags": ["peace", "sage", "lettering", "essentials"]
+}

@@ -1,0 +1,126 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+
+const values = [
+  {
+    title: 'Every Purchase Counts',
+    description:
+      "A portion of every sale goes directly toward sending young Catholics to World Youth Day 2027 in Seoul. Your tee is more than clothing — it's a contribution to a pilgrimage.",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>`,
+  },
+  {
+    title: 'Quality You Can Feel',
+    description:
+      'We use 100% ring-spun cotton and premium heavyweight fabrics — because what you wear should feel as good as the mission it supports.',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>`,
+  },
+  {
+    title: 'A Global Family',
+    description:
+      'World Youth Day gathers millions of young Catholics from every nation. FaithFuel exists to help more voices join that chorus — starting right here, in our own community.',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>`,
+  },
+];
+---
+
+<MainLayout
+  title="About Us"
+  description="Learn the story behind FaithFuel — Catholic apparel fundraising to send young pilgrims to World Youth Day 2027 in Seoul, South Korea."
+>
+  <!-- Hero -->
+  <section class="bg-primary py-24 text-white">
+    <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+      <p
+        class="text-accent mb-4 text-sm font-semibold tracking-widest uppercase"
+      >
+        Our Story
+      </p>
+      <h1 class="text-5xl leading-tight font-black sm:text-6xl">
+        Seoul-Bound.<br />Fueled by <span class="text-accent">Faith.</span>
+      </h1>
+    </div>
+  </section>
+
+  <!-- Story -->
+  <section class="bg-white py-20">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <div
+        class="prose prose-lg max-w-none space-y-6 leading-relaxed text-gray-600"
+      >
+        <p class="text-primary text-xl font-semibold">
+          FaithFuel started with a goal: get young Catholics to World Youth Day
+          2027 in Seoul, South Korea.
+        </p>
+        <p>
+          A Neo catechumenal way community from St. Anthony De Padua singalong
+          parish, wanted to make the pilgrimage — but the cost of flights,
+          accommodation, and registration for a whole youth group adds up fast.
+          We needed a way to fundraise that felt meaningful.
+        </p>
+        <p>
+          So we started FaithFuel. We designed t-shirts that reflected what we
+          actually believe — rooted in the Catholic faith, inspired by the
+          saints, and simple enough to wear anywhere. Every sale helps cover the
+          cost of sending a young pilgrim to Seoul to stand with millions of
+          Catholics from around the world.
+        </p>
+        <p>
+          World Youth Day is one of those rare moments where you feel the
+          universality of the Church in a real, tangible way. We want as many
+          young people as possible to experience that — and if a tee can help
+          make it happen, then every stitch is worth it.
+        </p>
+        <p class="text-primary font-semibold">
+          Buy a shirt. Help send a pilgrim. See you in Seoul.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="bg-surface py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-14 text-center">
+        <p
+          class="text-accent mb-2 text-sm font-semibold tracking-widest uppercase"
+        >
+          Why It Matters
+        </p>
+        <h2 class="text-3xl font-black sm:text-4xl">How It Works</h2>
+      </div>
+      <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+        {
+          values.map((v) => (
+            <div class="rounded-2xl border border-gray-100 bg-white p-8 transition-shadow hover:shadow-md">
+              <div
+                class="bg-accent/10 text-accent mb-5 flex h-12 w-12 items-center justify-center rounded-xl"
+                set:html={v.icon}
+              />
+              <h3 class="mb-3 text-lg font-bold">{v.title}</h3>
+              <p class="text-sm leading-relaxed text-gray-500">
+                {v.description}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-white py-20 text-center">
+    <div class="mx-auto max-w-xl px-4">
+      <h2 class="mb-4 text-3xl font-black">Help us get to Seoul.</h2>
+      <p class="mb-8 text-gray-500">
+        Every purchase supports a young Catholic's pilgrimage to World Youth Day
+        2027. Shop the collection and be part of the journey.
+      </p>
+      <a
+        href="/products"
+        class="bg-primary hover:bg-accent inline-block rounded-xl px-10 py-4 font-bold text-white transition-colors"
+      >
+        Shop the Collection
+      </a>
+    </div>
+  </section>
+</MainLayout>
