@@ -11,10 +11,20 @@ interface Props {
   sizes: string[];
   category: string;
   inStock: boolean;
+  seller: string;
 }
 
-const { id, name, description, price, image, sizes, category, inStock } =
-  Astro.props;
+const {
+  id,
+  name,
+  description,
+  price,
+  image,
+  sizes,
+  category,
+  inStock,
+  seller,
+} = Astro.props;
 ---
 
 <article
@@ -56,6 +66,7 @@ const { id, name, description, price, image, sizes, category, inStock } =
         {name}
       </h2>
     </a>
+    <p class="mt-1 text-xs text-gray-400">by {seller}</p>
     <p class="mt-1.5 line-clamp-2 text-sm leading-relaxed text-gray-500">
       {description}
     </p>
@@ -74,6 +85,7 @@ const { id, name, description, price, image, sizes, category, inStock } =
             price={price}
             image={image.src}
             sizes={sizes}
+            seller={seller}
           />
         ) : (
           <button

@@ -15,6 +15,7 @@ const products = defineCollection({
       images: z.array(image()),
       sizes: z.array(z.enum(['XS', 'S', 'M', 'L', 'XL', 'XXL'])),
       category: z.string(),
+      seller: z.string(),
       featured: z.boolean().default(false),
       inStock: z.boolean().default(true),
       tags: z.array(z.string()).optional(),

@@ -18,7 +18,9 @@ export default function CheckoutForm() {
       const container = document.getElementById('turnstile-container');
       if (container && (window as any).turnstile) {
         widgetId = (window as any).turnstile.render(container, {
-          sitekey: '0x4AAAAAACg2EoLSFxVF0kcx',
+          sitekey: import.meta.env.DEV
+            ? '1x00000000000000000000AA' // test key
+            : '0x4AAAAAACg2EoLSFxVF0kcx', // production key
           theme: 'light',
           size: 'flexible',
           callback: (token: string) => setTurnstileToken(token),
@@ -114,22 +116,23 @@ export default function CheckoutForm() {
 
     setStatus('loading');
 
+    const apiUrl = import.meta.env.DEV
+      ? 'http://localhost:8787'
+      : 'https://faithful-worker.dejesusmelnard.workers.dev';
+
     try {
-      const res = await fetch(
-        'https://faithful-worker.dejesusmelnard.workers.dev/order',
-        {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            name,
-            email,
-            phone,
-            items: cartItems.value,
-            total: cartTotal.value,
-            turnstileToken,
-          }),
-        },
-      );
+      const res = await fetch(`${apiUrl}/order`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name,
+          email,
+          phone,
+          items: cartItems.value,
+          total: cartTotal.value,
+          turnstileToken,
+        }),
+      });
 
       const data = await res.json();
 

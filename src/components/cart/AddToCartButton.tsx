@@ -7,6 +7,7 @@ interface Props {
   price: number;
   image: string;
   sizes: string[];
+  seller: string;
 }
 
 export default function AddToCartButton({
@@ -15,13 +16,14 @@ export default function AddToCartButton({
   price,
   image,
   sizes,
+  seller,
 }: Props) {
   const [selectedSize, setSelectedSize] = useState('');
   const [added, setAdded] = useState(false);
 
   function handleAdd() {
     if (!selectedSize) return;
-    addToCart({ id, name, price, image, size: selectedSize });
+    addToCart({ id, name, price, image, size: selectedSize, seller });
     setAdded(true);
     setTimeout(() => setAdded(false), 1800);
   }

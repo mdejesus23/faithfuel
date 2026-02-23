@@ -5,7 +5,8 @@
   "images": ["./images/thumb.jpg", "./images/main.jpg"],
   "sizes": ["S", "M", "L", "XL", "XXL"],
   "category": "graphic",
-  "featured": true,
+  "seller": "nerdz23",
+  "featured": false,
   "inStock": true,
   "tags": ["faith", "graphic", "black", "scripture"]
 }

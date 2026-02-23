@@ -66,6 +66,7 @@ const categories = ['all', ...new Set(allProducts.map((p) => p.data.category))];
                 sizes={product.data.sizes}
                 category={product.data.category}
                 inStock={product.data.inStock}
+                seller={product.data.seller}
               />
             </div>
           ))

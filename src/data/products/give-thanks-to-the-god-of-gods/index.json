@@ -1,0 +1,12 @@
+{
+  "name": "Give Thanks To The God Of Gods Tee",
+  "description": "A timeless white tee bearing the word FAITH in bold type. Cut from 100% ring-spun cotton for a soft, relaxed feel that gets better with every wash.",
+  "price": 499,
+  "images": ["./images/thumb.jpg", "./images/main.jpg"],
+  "sizes": ["XS", "S", "M", "L", "XL", "XXL"],
+  "category": "essentials",
+  "seller": "EJ@",
+  "featured": true,
+  "inStock": true,
+  "tags": ["faith", "classic", "white", "essentials"]
+}

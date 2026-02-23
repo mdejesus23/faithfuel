@@ -7,6 +7,7 @@ export interface CartItem {
   size: string;
   image: string;
   quantity: number;
+  seller: string;
 }
 
 export const cartItems = signal<CartItem[]>([]);

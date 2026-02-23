@@ -5,7 +5,8 @@
   "images": ["./images/thumb.jpg", "./images/main.jpg"],
   "sizes": ["XS", "S", "M", "L", "XL", "XXL"],
   "category": "essentials",
-  "featured": true,
+  "seller": "nerdz23",
+  "featured": false,
   "inStock": true,
   "tags": ["peace", "sage", "lettering", "essentials"]
 }

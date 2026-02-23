@@ -5,6 +5,7 @@
   "images": ["./images/thumb.jpg", "./images/main.jpg"],
   "sizes": ["XS", "S", "M", "L", "XL", "XXL"],
   "category": "essentials",
+  "seller": "nerdz23",
   "featured": false,
   "inStock": true,
   "tags": ["faith", "motivational", "grey", "essentials"]
