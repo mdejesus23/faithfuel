@@ -1,0 +1,63 @@
+---
+import { MoveRight } from '@lucide/astro';
+import { Image } from 'astro:assets';
+import heroImage from '../../assets/hero.jpg';
+import GradientOverlay from '../GradientOverlay.astro';
+---
+
+<!-- Hero -->
+<section class="bg-primary relative flex min-h-screen overflow-hidden">
+  <!-- Background image -->
+  <Image
+    src={heroImage}
+    alt=""
+    class="absolute inset-0 h-full w-full object-cover object-center"
+    loading="eager"
+    fetchpriority="high"
+    aria-hidden="true"
+  />
+
+  <!-- Gradient overlay -->
+  <GradientOverlay />
+
+  <!-- Content -->
+  <div
+    class="relative z-20 mx-auto grid w-full max-w-7xl grid-cols-1 items-end gap-12 px-4 pt-40 pb-20 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-8 lg:py-32"
+  >
+    <!-- Left column: text -->
+    <div>
+      <p
+        class="text-accent mb-4 text-sm font-semibold tracking-widest uppercase"
+      >
+        Rooted in Tradition — 2026
+      </p>
+      <h1
+        class="text-5xl leading-[1.05] font-black text-white sm:text-6xl lg:text-7xl"
+      >
+        Clothed in<br /><span class="text-accent">His Grace.</span>
+      </h1>
+      <p class="mt-6 max-w-md text-lg leading-relaxed text-white/70">
+        Faith-inspired apparel for Catholics who carry the cross daily — bold
+        enough to witness, humble enough to serve.
+      </p>
+      <div class="mt-10 flex flex-wrap gap-4">
+        <a
+          href="/products"
+          class="bg-accent hover:bg-accent-dark inline-flex items-center gap-2 rounded-xl px-8 py-4 text-sm font-bold text-white transition-colors"
+        >
+          Shop the Collection
+          <MoveRight class="h-4 w-4" />
+        </a>
+        <a
+          href="/about"
+          class="inline-flex items-center gap-2 rounded-xl border border-white/20 px-8 py-4 text-sm font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/10"
+        >
+          Our Story
+        </a>
+      </div>
+    </div>
+
+    <!-- Right column: empty — lets the hero image breathe -->
+    <div class="hidden lg:block"></div>
+  </div>
+</section>

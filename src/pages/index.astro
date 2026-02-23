@@ -2,7 +2,8 @@
 import MainLayout from '../layouts/MainLayout.astro';
 import ProductCard from '../components/ProductCard.astro';
 import { getCollection } from 'astro:content';
-import { ChevronRight, MoveRight } from '@lucide/astro';
+import { ChevronRight } from '@lucide/astro';
+import Hero from '@/components/home/Hero.astro';
 
 const allProducts = await getCollection('products');
 const featured = allProducts.filter((p) => p.data.featured).slice(0, 3);
@@ -12,52 +13,7 @@ const featured = allProducts.filter((p) => p.data.featured).slice(0, 3);
   title="Wear Your Faith"
   description="Catholic apparel rooted in tradition — t-shirts inspired by the saints, the Gospel, and the beauty of the faith."
 >
-  <!-- Hero -->
-  <section
-    class="bg-primary relative flex min-h-[90vh] items-center overflow-hidden"
-  >
-    <!-- Decorative background text -->
-    <span
-      class="pointer-events-none absolute inset-0 flex items-center justify-center text-[20vw] leading-none font-black text-white/3 select-none"
-      aria-hidden="true"
-    >
-      FAITH
-    </span>
-
-    <div
-      class="relative mx-auto max-w-7xl px-4 py-24 text-white sm:px-6 lg:px-8"
-    >
-      <p
-        class="text-accent mb-4 text-sm font-semibold tracking-widest uppercase"
-      >
-        Rooted in Tradition — 2026
-      </p>
-      <h1
-        class="max-w-2xl text-5xl leading-[1.05] font-black sm:text-6xl lg:text-7xl"
-      >
-        Clothed in<br /><span class="text-accent">His Grace.</span>
-      </h1>
-      <p class="mt-6 max-w-xl text-lg leading-relaxed text-gray-400">
-        Faith-inspired apparel for Catholics who carry the cross daily — bold
-        enough to witness, humble enough to serve.
-      </p>
-      <div class="mt-10 flex flex-wrap gap-4">
-        <a
-          href="/products"
-          class="bg-accent hover:bg-accent-dark inline-flex items-center gap-2 rounded-xl px-8 py-4 text-sm font-bold text-white transition-colors"
-        >
-          Shop the Collection
-          <MoveRight class="h-4 w-4" />
-        </a>
-        <a
-          href="/about"
-          class="inline-flex items-center gap-2 rounded-xl border border-white/20 px-8 py-4 text-sm font-semibold text-white transition-colors hover:bg-white/10"
-        >
-          Our Story
-        </a>
-      </div>
-    </div>
-  </section>
+  <Hero />
 
   <!-- Featured Products -->
   <section class="bg-white py-24">
@@ -123,10 +79,10 @@ const featured = allProducts.filter((p) => p.data.featured).slice(0, 3);
         <span class="text-accent">Fueled by Faith.</span>
       </blockquote>
       <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-gray-500">
-        <span class="text-primary font-semibold">100% of the funds</span> raised
-        through every product sold go directly toward sending young Catholics to
-        World Youth Day 2027 in Seoul, South Korea. Buy a shirt. Help send a
-        pilgrim. See you in Seoul.
+        <span class="text-primary font-semibold">100% of the funds</span> raised through
+        every product sold go directly toward sending young Catholics to World Youth
+        Day 2027 in Seoul, South Korea. Buy a shirt. Help send a pilgrim. See you
+        in Seoul.
       </p>
       <a
         href="/about"
