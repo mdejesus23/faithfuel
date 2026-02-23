@@ -22,18 +22,21 @@ const { title, description, image } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title ? `${title} | FaithFuel` : 'FaithFuel — Wear Your Faith'}</title>
+    <title>
+      {title ? `${title} | FaithFuel` : 'FaithFuel — Wear Your Faith'}
+    </title>
     <Meta title={title} description={description} image={image} />
     <slot name="head" />
     <!-- Preload Inter font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://challenges.cloudflare.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
   </head>
-  <body class="min-h-screen flex flex-col">
+  <body class="flex min-h-screen flex-col">
     <Header />
 
     <!-- Cart Drawer (Preact, always mounted) -->

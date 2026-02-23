@@ -92,18 +92,21 @@ export default function CheckoutForm() {
     setStatus('loading');
 
     try {
-      const res = await fetch('/api/checkout', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name,
-          email,
-          phone,
-          items: cartItems.value,
-          total: cartTotal.value,
-          turnstileToken,
-        }),
-      });
+      const res = await fetch(
+        'https://faithful-worker.dejesusmelnard.workers.dev/order',
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name,
+            email,
+            phone,
+            items: cartItems.value,
+            total: cartTotal.value,
+            turnstileToken,
+          }),
+        },
+      );
 
       const data = await res.json();
 
@@ -200,8 +203,10 @@ export default function CheckoutForm() {
 
           <div
             class="cf-turnstile"
-            data-sitekey="YOUR_TURNSTILE_SITE_KEY"
-            data-callback="onTurnstileSuccess"
+            data-sitekey="0x4AAAAAACg2EoLSFxVF0kcx"
+            data-theme="light"
+            data-size="normal"
+            data-callback="onSuccess"
             data-expired-callback="onTurnstileExpired"
           />
 
