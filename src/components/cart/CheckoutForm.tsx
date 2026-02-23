@@ -12,11 +12,34 @@ export default function CheckoutForm() {
   const [turnstileToken, setTurnstileToken] = useState('');
 
   useEffect(() => {
-    (window as any).onTurnstileSuccess = (token: string) => {
-      setTurnstileToken(token);
+    let widgetId: string | undefined;
+
+    const renderWidget = () => {
+      const container = document.getElementById('turnstile-container');
+      if (container && (window as any).turnstile) {
+        widgetId = (window as any).turnstile.render(container, {
+          sitekey: '0x4AAAAAACg2EoLSFxVF0kcx',
+          theme: 'light',
+          size: 'flexible',
+          callback: (token: string) => setTurnstileToken(token),
+          'expired-callback': () => setTurnstileToken(''),
+          'error-callback': () => setTurnstileToken(''),
+        });
+      }
     };
-    (window as any).onTurnstileExpired = () => {
-      setTurnstileToken('');
+
+    // If turnstile is already loaded, render immediately
+    if ((window as any).turnstile) {
+      renderWidget();
+    } else {
+      // Otherwise wait for it to load
+      (window as any).onloadTurnstileCallback = renderWidget;
+    }
+
+    return () => {
+      if (widgetId && (window as any).turnstile) {
+        (window as any).turnstile.remove(widgetId);
+      }
     };
   }, []);
 
@@ -201,14 +224,7 @@ export default function CheckoutForm() {
             />
           </div>
 
-          <div
-            class="cf-turnstile"
-            data-sitekey="0x4AAAAAACg2EoLSFxVF0kcx"
-            data-theme="light"
-            data-size="normal"
-            data-callback="onSuccess"
-            data-expired-callback="onTurnstileExpired"
-          />
+          <div id="turnstile-container" />
 
           {status === 'error' && (
             <p class="rounded-xl bg-red-50 px-4 py-3 text-sm text-red-500">
