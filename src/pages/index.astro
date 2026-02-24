@@ -5,6 +5,7 @@ import { getCollection } from 'astro:content';
 import { ChevronRight } from '@lucide/astro';
 import Hero from '@/components/home/Hero.astro';
 
+const canonical = Astro.url.href;
 const allProducts = await getCollection('products');
 const featured = allProducts.filter((p) => p.data.featured).slice(0, 3);
 ---
@@ -12,6 +13,14 @@ const featured = allProducts.filter((p) => p.data.featured).slice(0, 3);
 <MainLayout
   title="Wear Your Faith"
   description="Catholic apparel rooted in tradition — t-shirts inspired by the saints, the Gospel, and the beauty of the faith."
+  structuredData={{
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: 'Home',
+    description:
+      'Catholic apparel rooted in tradition — t-shirts inspired by the saints, the Gospel, and the beauty of the faith.',
+    url: canonical,
+  }}
 >
   <Hero />
 
@@ -48,6 +57,7 @@ const featured = allProducts.filter((p) => p.data.featured).slice(0, 3);
               sizes={product.data.sizes}
               category={product.data.category}
               inStock={product.data.inStock}
+              seller={product.data.seller}
             />
           ))
         }

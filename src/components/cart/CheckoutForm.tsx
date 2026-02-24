@@ -95,6 +95,10 @@ export default function CheckoutForm() {
         </div>
         <h2 class="text-2xl font-black">Order Received!</h2>
         <p class="max-w-sm text-gray-500">{message}</p>
+        <p class="max-w-sm text-sm text-gray-400">
+          The seller will contact you shortly to confirm your order and arrange
+          payment and shipping details.
+        </p>
         <a
           href="/"
           class="bg-primary hover:bg-accent mt-4 inline-block rounded-xl px-8 py-3 font-semibold text-white transition-colors"

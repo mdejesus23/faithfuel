@@ -57,14 +57,15 @@ const related = allProducts
         <div class="flex flex-col gap-3">
           <!-- Main image display -->
           <div
-            class="bg-surface relative aspect-square overflow-hidden rounded-2xl"
+            id="zoom-container"
+            class="bg-surface relative aspect-square cursor-zoom-in overflow-hidden rounded-2xl"
           >
             {
               images.map((img, i) => (
                 <Image
                   src={img}
                   alt={`${name} – view ${i + 1}`}
-                  class={`h-full w-full object-cover transition-opacity duration-300 ${i === 0 ? '' : 'pointer-events-none absolute inset-0 opacity-0'}`}
+                  class={`h-full w-full origin-center object-cover transition-all duration-300 ease-out ${i === 0 ? '' : 'pointer-events-none absolute inset-0 opacity-0'}`}
                   loading={i === 0 ? 'eager' : 'lazy'}
                   data-gallery-main={i}
                 />
@@ -230,5 +231,96 @@ const related = allProducts
         });
       });
     });
+
+    // Zoom functionality
+    const zoomContainer = document.getElementById('zoom-container');
+    const zoomScale = 2;
+    let isZoomed = false;
+    let isMobile = window.matchMedia('(max-width: 768px)').matches;
+
+    function getActiveImage(): HTMLElement | null {
+      return document.querySelector<HTMLElement>(
+        '[data-gallery-main]:not(.opacity-0)',
+      );
+    }
+
+    function applyZoom(img: HTMLElement, x: number, y: number) {
+      const rect = zoomContainer!.getBoundingClientRect();
+      const offsetX = ((x - rect.left) / rect.width) * 100;
+      const offsetY = ((y - rect.top) / rect.height) * 100;
+      img.style.transformOrigin = `${offsetX}% ${offsetY}%`;
+      img.style.transform = `scale(${zoomScale})`;
+    }
+
+    function resetZoom(img: HTMLElement) {
+      img.style.transform = 'scale(1)';
+      img.style.transformOrigin = 'center center';
+    }
+
+    if (zoomContainer) {
+      // Desktop: hover zoom
+      zoomContainer.addEventListener('mouseenter', (e) => {
+        if (isMobile) return;
+        const img = getActiveImage();
+        if (img) {
+          applyZoom(img, e.clientX, e.clientY);
+        }
+      });
+
+      zoomContainer.addEventListener('mousemove', (e) => {
+        if (isMobile) return;
+        const img = getActiveImage();
+        if (img) {
+          applyZoom(img, e.clientX, e.clientY);
+        }
+      });
+
+      zoomContainer.addEventListener('mouseleave', () => {
+        if (isMobile) return;
+        const img = getActiveImage();
+        if (img) {
+          resetZoom(img);
+        }
+      });
+
+      // Mobile: tap to toggle zoom
+      zoomContainer.addEventListener('click', (e) => {
+        if (!isMobile) return;
+        const img = getActiveImage();
+        if (!img) return;
+
+        isZoomed = !isZoomed;
+        zoomContainer.classList.toggle('cursor-zoom-in', !isZoomed);
+        zoomContainer.classList.toggle('cursor-zoom-out', isZoomed);
+
+        if (isZoomed) {
+          applyZoom(img, e.clientX, e.clientY);
+        } else {
+          resetZoom(img);
+        }
+      });
+
+      // Handle touch move when zoomed on mobile
+      zoomContainer.addEventListener('touchmove', (e) => {
+        if (!isMobile || !isZoomed) return;
+        const touch = e.touches[0];
+        const img = getActiveImage();
+        if (img) {
+          applyZoom(img, touch.clientX, touch.clientY);
+        }
+      });
+
+      // Update isMobile on resize
+      window.addEventListener('resize', () => {
+        isMobile = window.matchMedia('(max-width: 768px)').matches;
+        if (!isMobile && isZoomed) {
+          const img = getActiveImage();
+          if (img) resetZoom(img);
+          isZoomed = false;
+          zoomContainer.classList.add('cursor-zoom-in');
+          zoomContainer.classList.remove('cursor-zoom-out');
+        }
+      });
+    }
   </script>
 </MainLayout>

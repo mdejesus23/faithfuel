@@ -1,6 +1,6 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
-
+const canonical = Astro.url.href;
 const values = [
   {
     title: 'Every Purchase Counts',
@@ -26,6 +26,14 @@ const values = [
 <MainLayout
   title="About Us"
   description="Learn the story behind FaithFuel — Catholic apparel fundraising to send young pilgrims to World Youth Day 2027 in Seoul, South Korea."
+  structuredData={{
+    '@context': 'https://schema.org',
+    '@type': 'AboutPage',
+    name: 'About Us',
+    description:
+      'Learn the story behind FaithFuel — Catholic apparel fundraising to send young pilgrims to World Youth Day 2027 in Seoul, South Korea.',
+    url: canonical,
+  }}
 >
   <!-- Hero -->
   <section class="bg-primary py-24 text-white">
@@ -61,10 +69,10 @@ const values = [
           So we started FaithFuel. We designed t-shirts that reflected what we
           actually believe — rooted in the Catholic faith, inspired by the
           saints, and simple enough to wear anywhere. Some of our graphics bring
-          a touch of humor to everyday Catholic and Christian life, because faith
-          is also joy — and sometimes a clever design is its own little lesson.
-          Every sale helps cover the cost of sending a young pilgrim to Seoul to
-          stand with millions of Catholics from around the world.
+          a touch of humor to everyday Catholic and Christian life, because
+          faith is also joy — and sometimes a clever design is its own little
+          lesson. Every sale helps cover the cost of sending a young pilgrim to
+          Seoul to stand with millions of Catholics from around the world.
         </p>
         <p>
           World Youth Day is one of those rare moments where you feel the
