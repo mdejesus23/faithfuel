@@ -1,0 +1,63 @@
+media:
+  - name: product_images
+    label: Product Images
+    input: src/data/products
+    output: src/data/products
+
+content:
+  - name: products
+    label: Products
+    type: collection
+    path: src/data/products
+    filename: '{slug}/index.json'
+    fields:
+      - name: name
+        label: Name
+        type: string
+        required: true
+      - name: description
+        label: Description
+        type: text
+        required: true
+      - name: price
+        label: Price
+        type: number
+        required: true
+      - name: images
+        label: Images
+        type: image
+        list: true
+        required: true
+      - name: sizes
+        label: Sizes
+        type: select
+        list: true
+        required: true
+        options:
+          values:
+            - XS
+            - S
+            - M
+            - L
+            - XL
+            - XXL
+      - name: category
+        label: Category
+        type: string
+        required: true
+      - name: seller
+        label: Seller
+        type: string
+        required: true
+      - name: featured
+        label: Featured
+        type: boolean
+        default: false
+      - name: inStock
+        label: In Stock
+        type: boolean
+        default: true
+      - name: tags
+        label: Tags
+        type: string
+        list: true
