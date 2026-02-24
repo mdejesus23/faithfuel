@@ -6,7 +6,7 @@
   "sizes": ["S", "M", "L", "XL", "XXL"],
   "category": "graphic",
   "seller": "EJ@",
-  "featured": false,
+  "featured": true,
   "inStock": true,
   "tags": ["faith", "graphic", "black", "holy", "vibes"]
 }
