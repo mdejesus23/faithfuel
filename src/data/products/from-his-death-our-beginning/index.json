@@ -1,0 +1,12 @@
+{
+  "name": "From His Death, Our Beginning Tee",
+  "description": "This tee is a powerful reminder of the sacrifice that brings new life. Featuring a bold graphic of a tomb with the words 'From His Death, Our Beginning' underneath, it's a statement of faith and hope. Made from soft, breathable fabric, it's perfect for those who want to wear their faith proudly and share the message of resurrection with the world.",
+  "price": 349,
+  "images": ["./images/thumb.jpg", "./images/main.jpg"],
+  "sizes": ["XS", "S", "M", "L", "XL", "XXL"],
+  "category": "essentials",
+  "seller": "EJ@",
+  "featured": true,
+  "inStock": true,
+  "tags": ["cross", "lent"]
+}

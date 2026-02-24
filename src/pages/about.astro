@@ -1,5 +1,8 @@
 ---
+import { Image } from 'astro:assets';
 import MainLayout from '../layouts/MainLayout.astro';
+import heroImg from '@/assets/about-hero.jpg';
+import GradientOverlay from '@/components/GradientOverlay.astro';
 const canonical = Astro.url.href;
 const values = [
   {
@@ -36,8 +39,26 @@ const values = [
   }}
 >
   <!-- Hero -->
-  <section class="bg-primary py-24 text-white">
-    <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+  <section class="bg-primary relative py-24 text-white">
+    <!-- Background image -->
+    <Image
+      src={heroImg}
+      alt="hero image of a clothes"
+      widths={[360, 420, 640, 960, 1280, 1920]}
+      sizes="100vw"
+      quality={70}
+      class="absolute inset-0 h-full w-full object-cover object-center"
+      loading="eager"
+      fetchpriority="high"
+      aria-hidden="true"
+    />
+
+    <!-- Gradient overlay -->
+    <GradientOverlay />
+
+    <div
+      class="relative z-20 mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8"
+    >
       <p
         class="text-accent mb-4 text-sm font-semibold tracking-widest uppercase"
       >
@@ -50,7 +71,7 @@ const values = [
   </section>
 
   <!-- Story -->
-  <section class="bg-white py-20">
+  <section class="relative z-20 bg-white py-20">
     <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
       <div
         class="prose prose-lg max-w-none space-y-6 leading-relaxed text-gray-600"

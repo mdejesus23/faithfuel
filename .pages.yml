@@ -24,8 +24,9 @@ content:
         type: number
         required: true
       - name: images
-        label: Images
-        type: image
+        label: Image Filepaths
+        type: string
+        default: ./images/{replace-with-the-real-image-filename.ext}
         list: true
         required: true
       - name: sizes
