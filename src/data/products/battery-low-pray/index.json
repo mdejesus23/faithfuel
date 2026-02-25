@@ -4,9 +4,12 @@
   "price": 399,
   "images": ["./images/thumb.jpg", "./images/main.jpg"],
   "sizes": ["S", "M", "L", "XL", "XXL"],
+  "images": ["./images/thumb.jpg", "./images/main.jpg"],
+  "sizes": ["S", "M", "L", "XL", "XXL"],
   "category": "graphic",
   "seller": "nerdz23",
   "featured": false,
   "inStock": true,
-  "tags": ["faith", "graphic", "black", "prayer", "battery"]
+  "tags": ["faith", "graphic", "black", "prayer", "battery"],
+  "date": "2026-02-16"
 }

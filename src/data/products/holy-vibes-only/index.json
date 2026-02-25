@@ -4,9 +4,12 @@
   "price": 399,
   "images": ["./images/thumb.jpg", "./images/main.jpg"],
   "sizes": ["S", "M", "L", "XL", "XXL"],
+  "images": ["./images/thumb.jpg", "./images/main.jpg"],
+  "sizes": ["S", "M", "L", "XL", "XXL"],
   "category": "graphic",
   "seller": "EJ@",
   "featured": true,
   "inStock": true,
-  "tags": ["faith", "graphic", "black", "holy", "vibes"]
+  "tags": ["faith", "graphic", "black", "holy", "vibes"],
+  "date": "2026-02-20"
 }

@@ -62,41 +62,9 @@ const sizingGuideCollection = defineCollection({
   }),
 });
 
-const customers = defineCollection({
-  loader: glob({
-    pattern: '*/index.json',
-    base: './src/data/customers',
-    generateId: ({ entry }) => entry.split('/')[0],
-  }),
-  schema: ({ image }) =>
-    z.object({
-      name: z.string(),
-      reviews: z.string().optional(),
-      rate: z.number().optional(),
-      image: image().optional(),
-    }),
-});
-
-const blogCollection = defineCollection({
-  loader: glob({ pattern: '**/index.mdx', base: './src/data/posts' }),
-  schema: ({ image }) =>
-    z.object({
-      title: z.string(),
-      author: z.string(),
-      isFeatured: z.boolean().optional().default(false),
-      date: z.date(),
-      excerpt: z.string(),
-      image: image(),
-      tags: z.array(z.string()).optional(),
-      keywords: z.array(z.string()).optional(),
-    }),
-});
-
 export const collections = {
-  posts: blogCollection,
   products,
   policies: privacyPolicyCollection,
   shipping: shippingPolicyCollection,
   sizingGuide: sizingGuideCollection,
-  customers,
 };

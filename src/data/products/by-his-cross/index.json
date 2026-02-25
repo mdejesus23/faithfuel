@@ -4,9 +4,12 @@
   "price": 399,
   "images": ["./images/thumb.jpg", "./images/main.jpg"],
   "sizes": ["S", "M", "L", "XL", "XXL"],
+  "images": ["./images/thumb.jpg", "./images/main.jpg"],
+  "sizes": ["S", "M", "L", "XL", "XXL"],
   "category": "graphic",
   "seller": "nerdz23",
   "featured": true,
   "inStock": true,
-  "tags": ["cross", "lent"]
+  "tags": ["cross", "lent"],
+  "date": "2026-02-22"
 }
