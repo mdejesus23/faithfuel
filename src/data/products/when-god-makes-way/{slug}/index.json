@@ -1,0 +1,24 @@
+{
+  "name": "When God Makes Way Tee",
+  "description": "Inspired by the powerful moment when God made a way for Moses and the Israelites through the Red Sea (Exodus 14), this faith-based T-shirt represents divine guidance, miracles, and unwavering trust in God’s promises. A bold reminder that when there seems to be no way, God makes a way.",
+  "price": 499,
+  "images": [
+    "./images/main.jpg",
+    "./images/thumb.jpg"
+  ],
+  "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL",
+    "XXL"
+  ],
+  "category": "shirts",
+  "seller": "Mitch",
+  "featured": true,
+  "inStock": true,
+  "tags": [
+    "Salvation"
+  ],
+  "date": "02-25-26"
+}
