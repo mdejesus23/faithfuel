@@ -6,7 +6,9 @@ import { ChevronRight } from '@lucide/astro';
 import Hero from '@/components/home/Hero.astro';
 
 const canonical = Astro.url.href;
-const allProducts = await getCollection('products');
+const allProducts = (await getCollection('products')).filter(
+  (p) => p.data.inStock,
+);
 const featured = allProducts.filter((p) => p.data.featured).slice(0, 6);
 ---
 

@@ -6,7 +6,9 @@ import { getCollection } from 'astro:content';
 import { ChevronDown } from '@lucide/astro';
 
 export async function getStaticPaths() {
-  const products = await getCollection('products');
+  const products = (await getCollection('products')).filter(
+    (p) => p.data.inStock,
+  );
   return products.map((product) => ({
     params: { slug: product.id },
     props: { product },

@@ -7,7 +7,7 @@
   "category": "food",
   "seller": "May",
   "featured": true,
-  "inStock": true,
+  "inStock": false,
   "tags": ["chocolate", "dessert"],
   "date": "2026-02-25"
 }

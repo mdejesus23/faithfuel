@@ -8,7 +8,8 @@ const navLinks = [
   { label: 'Contact', href: '/contact' },
 ];
 
-const currentPath = Astro.url.pathname;
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
+const isHomePage = currentPath === '/';
 ---
 
 <header

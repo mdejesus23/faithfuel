@@ -7,29 +7,39 @@ export default function CheckoutForm() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
+  const [address, setAddress] = useState('');
   const [status, setStatus] = useState<Status>('idle');
   const [message, setMessage] = useState('');
   const [turnstileToken, setTurnstileToken] = useState('');
   const [nameError, setNameError] = useState('');
   const [emailError, setEmailError] = useState('');
   const [phoneError, setPhoneError] = useState('');
-
+  const [addressError, setAddressError] = useState('');
   function validateName(val: string) {
     if (!val.trim()) return 'Full name is required.';
     if (val.trim().length < 2) return 'Name must be at least 2 characters.';
-    if (!/^[a-zA-Z\s'\-]+$/.test(val.trim())) return 'Name contains invalid characters.';
+    if (!/^[a-zA-Z\s'\-]+$/.test(val.trim()))
+      return 'Name contains invalid characters.';
     return '';
   }
 
   function validateEmail(val: string) {
     if (!val.trim()) return 'Email address is required.';
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val.trim())) return 'Please enter a valid email address.';
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val.trim()))
+      return 'Please enter a valid email address.';
     return '';
   }
 
   function validatePhone(val: string) {
     if (!val.trim()) return 'Phone number is required.';
-    if (val.replace(/\D/g, '').length < 10) return 'Please enter a valid phone number.';
+    if (val.replace(/\D/g, '').length < 10)
+      return 'Please enter a valid phone number.';
+    return '';
+  }
+
+  function validateAddress(val: string) {
+    if (!val.trim()) return 'Address is required.';
+    if (val.trim().length < 5) return 'Address must be at least 5 characters.';
     return '';
   }
 
@@ -162,6 +172,7 @@ export default function CheckoutForm() {
           name,
           email,
           phone,
+          address,
           items: cartItems.value,
           total: cartTotal.value,
           turnstileToken,
@@ -228,11 +239,16 @@ export default function CheckoutForm() {
               required
               placeholder="John Doe"
               value={name}
-              onInput={(e) => { setName((e.target as HTMLInputElement).value); setNameError(''); }}
+              onInput={(e) => {
+                setName((e.target as HTMLInputElement).value);
+                setNameError('');
+              }}
               onBlur={() => setNameError(validateName(name))}
               class={`focus:ring-primary w-full rounded-xl border px-4 py-3 text-sm transition-shadow focus:border-transparent focus:ring-2 focus:outline-none ${nameError ? 'border-red-400 bg-red-50' : 'border-gray-200'}`}
             />
-            {nameError && <p class="mt-1.5 text-xs text-red-500">{nameError}</p>}
+            {nameError && (
+              <p class="mt-1.5 text-xs text-red-500">{nameError}</p>
+            )}
           </div>
 
           <div>
@@ -244,11 +260,16 @@ export default function CheckoutForm() {
               required
               placeholder="john@example.com"
               value={email}
-              onInput={(e) => { setEmail((e.target as HTMLInputElement).value); setEmailError(''); }}
+              onInput={(e) => {
+                setEmail((e.target as HTMLInputElement).value);
+                setEmailError('');
+              }}
               onBlur={() => setEmailError(validateEmail(email))}
               class={`focus:ring-primary w-full rounded-xl border px-4 py-3 text-sm transition-shadow focus:border-transparent focus:ring-2 focus:outline-none ${emailError ? 'border-red-400 bg-red-50' : 'border-gray-200'}`}
             />
-            {emailError && <p class="mt-1.5 text-xs text-red-500">{emailError}</p>}
+            {emailError && (
+              <p class="mt-1.5 text-xs text-red-500">{emailError}</p>
+            )}
           </div>
 
           <div>
@@ -260,11 +281,37 @@ export default function CheckoutForm() {
               required
               placeholder="+63 XXX XXX XXXX"
               value={phone}
-              onInput={(e) => { setPhone((e.target as HTMLInputElement).value); setPhoneError(''); }}
+              onInput={(e) => {
+                setPhone((e.target as HTMLInputElement).value);
+                setPhoneError('');
+              }}
               onBlur={() => setPhoneError(validatePhone(phone))}
               class={`focus:ring-primary w-full rounded-xl border px-4 py-3 text-sm transition-shadow focus:border-transparent focus:ring-2 focus:outline-none ${phoneError ? 'border-red-400 bg-red-50' : 'border-gray-200'}`}
             />
-            {phoneError && <p class="mt-1.5 text-xs text-red-500">{phoneError}</p>}
+            {phoneError && (
+              <p class="mt-1.5 text-xs text-red-500">{phoneError}</p>
+            )}
+          </div>
+
+          <div>
+            <label class="mb-1.5 block text-sm font-semibold text-gray-700">
+              Shipping Address
+            </label>
+            <input
+              type="text"
+              required
+              placeholder="123 Main St, City"
+              value={address}
+              onInput={(e) => {
+                setAddress((e.target as HTMLInputElement).value);
+                setAddressError('');
+              }}
+              onBlur={() => setAddressError(validateAddress(address))}
+              class={`focus:ring-primary w-full rounded-xl border px-4 py-3 text-sm transition-shadow focus:border-transparent focus:ring-2 focus:outline-none ${addressError ? 'border-red-400 bg-red-50' : 'border-gray-200'}`}
+            />
+            {addressError && (
+              <p class="mt-1.5 text-xs text-red-500">{addressError}</p>
+            )}
           </div>
 
           <div id="turnstile-container" />
