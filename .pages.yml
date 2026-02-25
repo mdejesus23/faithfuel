@@ -62,3 +62,79 @@ content:
         label: Tags
         type: string
         list: true
+      - name: date
+        label: Date
+        type: string
+        required: true
+
+  # Privacy Policy Collection
+  - name: policies
+    label: Privacy Policies
+    type: collection
+    path: src/data/privacy
+    format: yaml-frontmatter
+    filename: index.md
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: description
+        label: Description
+        type: text
+        required: true
+      - name: lastUpdated
+        label: Last Updated
+        type: string
+        required: true
+      - name: body
+        label: Body
+        type: rich-text
+
+  # Shipping and Return Collection
+  - name: shipping
+    label: Shipping and Returns
+    type: collection
+    path: src/data/shipping
+    format: yaml-frontmatter
+    filename: index.md
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: description
+        label: Description
+        type: text
+        required: true
+      - name: lastUpdated
+        label: Last Updated
+        type: string
+        required: true
+      - name: body
+        label: Body
+        type: rich-text
+
+  # Sizing Guide Collection
+  - name: sizingGuide
+    label: Sizing Guide
+    type: collection
+    path: src/data/sizing-guide
+    format: yaml-frontmatter
+    filename: index.md
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: description
+        label: Description
+        type: text
+        required: true
+      - name: lastUpdated
+        label: Last Updated
+        type: string
+        required: true
+      - name: body
+        label: Body
+        type: rich-text

@@ -124,7 +124,7 @@ const related = allProducts
                 name={name}
                 price={price}
                 image={images[0].src}
-                sizes={sizes}
+                sizes={sizes ?? []}
                 seller={seller}
               />
             ) : (
