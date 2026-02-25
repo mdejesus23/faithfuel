@@ -9,7 +9,7 @@ content:
     label: Products
     type: collection
     path: src/data/products
-    filename: '{slug}/index.json'
+    filename: index.json
     fields:
       - name: name
         label: Name

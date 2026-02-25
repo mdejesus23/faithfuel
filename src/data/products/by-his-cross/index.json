@@ -2,7 +2,7 @@
   "name": "By His Cross, We Are Saved Tee",
   "description": "This tee is a powerful reminder of the sacrifice that brings salvation. Featuring a bold graphic of a cross with the words 'By His Cross, We Are Saved' underneath, it's a statement of faith and hope. Made from soft, breathable fabric, it's perfect for those who want to wear their faith proudly and share the message of salvation with the world.",
   "price": 349,
-  "images": ["./images/thumb.jpg", "./images/main.jpg"],
+  "images": ["./images/main.jpg", "./images/thumb.jpg"],
   "sizes": ["S", "M", "L", "XL", "XXL"],
   "category": "shirts",
   "seller": "nerdz23",
