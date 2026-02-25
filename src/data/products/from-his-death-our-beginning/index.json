@@ -4,7 +4,7 @@
   "price": 349,
   "images": ["./images/thumb.jpg", "./images/main.jpg"],
   "sizes": ["XS", "S", "M", "L", "XL", "XXL"],
-  "category": "essentials",
+  "category": "shirts",
   "seller": "EJ@",
   "featured": true,
   "inStock": true,
