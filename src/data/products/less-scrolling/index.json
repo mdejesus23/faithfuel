@@ -1,8 +1,8 @@
 {
   "name": "Less Scrolling Tee",
   "description": "Be still and know. Soft sage green with a delicate hand-lettered print. This lightweight tee is for those quiet, grounded moments — a wearable reminder to breathe and trust.",
-  "price": 399,
-  "images": ["./images/thumb.jpg", "./images/main.jpg"],
+  "price": 349,
+  "images": ["./images/main.jpg", "./images/thumb.jpg"],
   "sizes": ["XS", "S", "M", "L", "XL", "XXL"],
   "images": ["./images/thumb.jpg", "./images/main.jpg"],
   "sizes": ["XS", "S", "M", "L", "XL", "XXL"],
