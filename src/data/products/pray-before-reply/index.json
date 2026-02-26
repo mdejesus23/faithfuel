@@ -1,0 +1,27 @@
+{
+  "name": "Pray Before Reply Tee",
+  "description": "Stay mindful and stylish with the 'Pray Before Reply' tee – a comfortable shirt that inspires reflection and faith, perfect for everyday wear or thoughtful gifting.",
+  "price": 399,
+  "images": [
+    "./images/main.jpg",
+    "./images/thumb.jpg"
+  ],
+  "sizes": [
+    "XS",
+    "S",
+    "M",
+    "L",
+    "XL",
+    "XXL"
+  ],
+  "category": "shirts",
+  "seller": "Mitch15",
+  "featured": true,
+  "inStock": true,
+  "tags": [
+    "faith",
+    "temperance",
+    "patience"
+  ],
+  "date": "02-26-26"
+}
