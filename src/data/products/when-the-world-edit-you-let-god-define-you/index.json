@@ -1,13 +1,28 @@
 {
   "name": "When the World Edits You, Let God Define You Tee",
   "description": "You are more than a conqueror. This mid-weight heather grey tee carries that truth in clean, understated type. Wear it as a reminder of who you are.",
-  "price": 349,
-  "images": ["./images/main.jpg", "./images/thumb.jpg"],
-  "sizes": ["XS", "S", "M", "L", "XL", "XXL"],
+  "price": 399,
+  "images": [
+    "./images/main.jpg",
+    "./images/thumb.jpg"
+  ],
+  "sizes": [
+    "XS",
+    "S",
+    "M",
+    "L",
+    "XL",
+    "XXL"
+  ],
   "category": "shirts",
   "seller": "nerdz23",
   "featured": false,
   "inStock": true,
-  "tags": ["faith", "motivational", "grey", "essentials"],
+  "tags": [
+    "faith",
+    "motivational",
+    "grey",
+    "essentials"
+  ],
   "date": "2026-02-14"
 }
