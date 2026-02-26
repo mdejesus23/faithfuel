@@ -1,13 +1,28 @@
 {
   "name": "Pray Fast Give Tee",
   "description": "A timeless cream tee bearing the word GRACE in bold type. Cut from 100% ring-spun cotton for a soft, relaxed feel that gets better with every wash.",
-  "price": 349,
-  "images": ["./images/main.jpg", "./images/thumb.jpg"],
-  "sizes": ["XS", "S", "M", "L", "XL"],
+  "price": 399,
+  "images": [
+    "./images/main.jpg",
+    "./images/thumb.jpg"
+  ],
+  "sizes": [
+    "XS",
+    "S",
+    "M",
+    "L",
+    "XL"
+  ],
   "category": "shirts",
   "seller": "nerdz23",
   "featured": true,
   "inStock": true,
-  "tags": ["grace", "graphic", "cream", "cross", "lent"],
+  "tags": [
+    "grace",
+    "graphic",
+    "cream",
+    "cross",
+    "lent"
+  ],
   "date": "2026-02-12"
 }
