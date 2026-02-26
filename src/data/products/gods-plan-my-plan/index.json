@@ -1,13 +1,28 @@
 {
   "name": "God's Plan My Plan Tee",
   "description": "A timeless white tee bearing the word FAITH in bold type. Cut from 100% ring-spun cotton for a soft, relaxed feel that gets better with every wash.",
-  "price": 349,
-  "images": ["./images/main.jpg", "./images/thumb.jpg"],
-  "sizes": ["XS", "S", "M", "L", "XL", "XXL"],
+  "price": 399,
+  "images": [
+    "./images/main.jpg",
+    "./images/thumb.jpg"
+  ],
+  "sizes": [
+    "XS",
+    "S",
+    "M",
+    "L",
+    "XL",
+    "XXL"
+  ],
   "category": "shirts",
   "seller": "nerdz23",
   "featured": false,
   "inStock": true,
-  "tags": ["faith", "classic", "white", "essentials"],
+  "tags": [
+    "faith",
+    "classic",
+    "white",
+    "essentials"
+  ],
   "date": "2026-02-24"
 }
