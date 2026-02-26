@@ -1,13 +1,27 @@
 {
   "name": "Faith Mode Activated Tee",
   "description": "Put on the full armor. This heavyweight black tee features Ephesians 6:11 in a bold graphic print. Structured fit, durable weave — built for those who stand firm.",
-  "price": 349,
-  "images": ["./images/main.jpg", "./images/thumb.jpg"],
-  "sizes": ["S", "M", "L", "XL", "XXL"],
+  "price": 399,
+  "images": [
+    "./images/main.jpg",
+    "./images/thumb.jpg"
+  ],
+  "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL",
+    "XXL"
+  ],
   "category": "shirts",
   "seller": "nerdz23",
   "featured": false,
   "inStock": true,
-  "tags": ["faith", "graphic", "black", "scripture"],
+  "tags": [
+    "faith",
+    "graphic",
+    "black",
+    "scripture"
+  ],
   "date": "2026-02-01"
 }
