@@ -1,0 +1,27 @@
+{
+  "name": "Jesus Take The Wheel Tee",
+  "description": "Show your faith with the 'Jesus Take The Wheel' tee – a stylish and comfortable shirt perfect for daily wear, church events, or as a meaningful gift.",
+  "price": 399,
+  "images": [
+    "./images/main.jpg",
+    "./images/thumb.jpg"
+  ],
+  "sizes": [
+    "XS",
+    "S",
+    "M",
+    "L",
+    "XL",
+    "XXL"
+  ],
+  "category": "shirts",
+  "seller": "Mitch",
+  "featured": true,
+  "inStock": true,
+  "tags": [
+    "inspirational",
+    "motivation",
+    "trust"
+  ],
+  "date": "02-26-26"
+}
