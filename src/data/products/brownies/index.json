@@ -1,13 +1,20 @@
 {
-  "name": "Brownies Tee",
-  "description": "This rich chocolate brown tee features a simple, elegant cross graphic on the front. Soft and comfortable, it's perfect for everyday wear or as a subtle statement of faith.",
+  "name": "Brownies",
+  "description": "Our homemade fudgy brownies are baked fresh for that perfect chocolatey bite. They say, 'Taste and see that the Lord is good’… we suggest starting with a brownie.",
   "price": 149,
-  "sizes": ["regular"],
-  "images": ["./images/thumb.jpg"],
+  "images": [
+    "./images/thumb.jpg"
+  ],
+  "sizes": [
+    "S"
+  ],
   "category": "food",
   "seller": "May",
   "featured": true,
   "inStock": false,
-  "tags": ["chocolate", "dessert"],
+  "tags": [
+    "chocolate",
+    "dessert"
+  ],
   "date": "2026-02-25"
 }
