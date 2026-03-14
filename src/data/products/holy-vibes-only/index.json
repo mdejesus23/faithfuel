@@ -1,12 +1,27 @@
 {
   "name": "Holy Vibes Only Tee",
   "description": "A bold black tee with a powerful message. Featuring a striking graphic that reads HOLY VIBES ONLY, this shirt is for those who want to wear their faith loud and proud. Made from 100% ring-spun cotton for a soft, comfortable fit.",
-  "price": 349,
-  "images": ["./images/thumb.jpg", "./images/main.jpg"],
-  "sizes": ["S", "M", "L", "XL", "XXL"],
+  "price": 399,
+  "images": [
+    "./images/thumb.jpg",
+    "./images/main.jpg"
+  ],
+  "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL",
+    "XXL"
+  ],
   "category": "graphic",
   "seller": "EJ@",
   "featured": false,
   "inStock": true,
-  "tags": ["faith", "graphic", "black", "holy", "vibes"]
+  "tags": [
+    "faith",
+    "graphic",
+    "black",
+    "holy",
+    "vibes"
+  ]
 }
