@@ -1,0 +1,22 @@
+{
+  "name": "You Are Beautiful Tee",
+  "description": "Celebrate the incomparable grace of the Blessed Virgin and radiate confidence with this stylish, bold-font tee.",
+  "price": 399,
+  "images": [
+    "./images/main.jpg",
+    "./images/thumb.jpg"
+  ],
+  "sizes": [
+    "XS",
+    "S",
+    "M",
+    "L",
+    "XL",
+    "XXL"
+  ],
+  "category": "shirts",
+  "seller": "EJ@",
+  "featured": true,
+  "inStock": true,
+  "date": "03-15-2026"
+}
