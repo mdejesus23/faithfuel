@@ -1,0 +1,25 @@
+{
+  "name": "Wonderfully Made Tee",
+  "description": "Embrace your worth with this soft, Y2K-inspired tee that serves as a beautiful daily reminder that you are fearfully and wonderfully made.",
+  "price": 399,
+  "images": [
+    "./images/main.jpg",
+    "./images/thumb.jpg"
+  ],
+  "sizes": [
+    "XS",
+    "S",
+    "M",
+    "L",
+    "XL",
+    "XXL"
+  ],
+  "category": "shirts",
+  "seller": "EJ@",
+  "featured": true,
+  "inStock": true,
+  "tags": [
+    "Psalms"
+  ],
+  "date": "03-15-2026"
+}
