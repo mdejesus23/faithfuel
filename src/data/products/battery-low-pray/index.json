@@ -1,12 +1,27 @@
 {
   "name": "Battery Low Pray Tee",
   "description": "When your spiritual battery is running low, this tee is here to recharge your faith. Featuring a bold graphic of a low battery icon with the words 'Pray' underneath, it's a reminder to keep your connection strong. Made from soft, breathable fabric, it's perfect for those moments when you need a little extra spiritual boost.",
-  "price": 349,
-  "images": ["./images/thumb.jpg", "./images/main.jpg"],
-  "sizes": ["S", "M", "L", "XL", "XXL"],
+  "price": 399,
+  "images": [
+    "./images/thumb.jpg",
+    "./images/main.jpg"
+  ],
+  "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL",
+    "XXL"
+  ],
   "category": "graphic",
   "seller": "nerdz23",
   "featured": false,
   "inStock": true,
-  "tags": ["faith", "graphic", "black", "prayer", "battery"]
+  "tags": [
+    "faith",
+    "graphic",
+    "black",
+    "prayer",
+    "battery"
+  ]
 }
