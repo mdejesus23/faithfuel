@@ -1,0 +1,25 @@
+{
+  "name": "Cup of Salvation Tee",
+  "description": "Wear a sophisticated, vintage-inspired tribute to gratitude and grace with this striking tee that honors the Cup of Salvation and God's endless goodness.",
+  "price": 450,
+  "images": [
+    "./images/1.jpg",
+    "./images/2.jpg"
+  ],
+  "sizes": [
+    "XS",
+    "S",
+    "M",
+    "L",
+    "XL",
+    "XXL"
+  ],
+  "category": "shirts",
+  "seller": "EJ@",
+  "featured": true,
+  "inStock": true,
+  "tags": [
+    "psalms"
+  ],
+  "date": "03-15-2026"
+}
