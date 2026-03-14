@@ -1,0 +1,26 @@
+{
+  "name": "Rooted in Christ Glow",
+  "description": "Show your unwavering faith with the Rooted in Christ T-Shirt, featuring a powerful cross with deep roots symbolizing a life firmly grounded in faith, strength, and spiritual growth—perfect for everyday inspiration and Christian expression.",
+  "price": 399,
+  "images": [
+    "./images/image1",
+    "./images/image2"
+  ],
+  "sizes": [
+    "XS",
+    "S",
+    "M",
+    "L",
+    "XL",
+    "XXL"
+  ],
+  "category": "Shirts",
+  "seller": "Mitch",
+  "featured": true,
+  "inStock": true,
+  "tags": [
+    "cross",
+    "salvation"
+  ],
+  "date": "2026-03-15"
+}
