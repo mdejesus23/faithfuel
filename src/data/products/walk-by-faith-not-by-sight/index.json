@@ -1,13 +1,27 @@
 {
   "name": "Walk By Faith Not By Sight Tee",
   "description": "This soft cream tee features a hand-drawn cross graphic with the words WALK BY FAITH NOT BY SIGHT underneath. Minimalist and meaningful, it's perfect for everyday wear.",
-  "price": 499,
-  "images": ["./images/main.jpg", "./images/thumb.jpg"],
-  "sizes": ["XS", "S", "M", "L", "XL"],
+  "price": 399,
+  "images": [
+    "./images/main.jpg",
+    "./images/thumb.jpg"
+  ],
+  "sizes": [
+    "XS",
+    "S",
+    "M",
+    "L",
+    "XL"
+  ],
   "category": "shirts",
   "seller": "EJ@",
   "featured": true,
   "inStock": true,
-  "tags": ["grace", "graphic", "cream", "cross"],
+  "tags": [
+    "grace",
+    "graphic",
+    "cream",
+    "cross"
+  ],
   "date": "2026-02-05"
 }
