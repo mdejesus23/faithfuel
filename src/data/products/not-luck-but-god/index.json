@@ -1,0 +1,22 @@
+{
+  "name": "Not Luck But God Tee",
+  "description": "Declare your unwavering faith over chance with this playful, clover-accented tee that reminds the world that your path is guided by God, not luck.",
+  "price": 399,
+  "images": [
+    "./images/1.jpg",
+    "./images/2.jpg"
+  ],
+  "sizes": [
+    "XS",
+    "S",
+    "M",
+    "L",
+    "XL",
+    "XXL"
+  ],
+  "category": "shirts",
+  "seller": "EJ@",
+  "featured": false,
+  "inStock": true,
+  "date": "03-15-2026"
+}
