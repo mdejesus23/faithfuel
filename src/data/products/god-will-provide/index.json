@@ -1,0 +1,27 @@
+{
+  "name": "God Will Provide (Small Print)",
+  "description": "Brighten your day and those around you with this colorful, hand-drawn tee that serves as a cheerful reminder of God's faithful provision.",
+  "price": 350,
+  "images": [
+    "./images/main.jpg",
+    "./images/thumb.jpg"
+  ],
+  "sizes": [
+    "XS",
+    "S",
+    "M",
+    "L",
+    "XL",
+    "XXL"
+  ],
+  "category": "shirts",
+  "seller": "EJ@",
+  "featured": true,
+  "inStock": true,
+  "tags": [
+    "christian",
+    "short quote",
+    "bible quotes"
+  ],
+  "date": "3-19-2026"
+}
