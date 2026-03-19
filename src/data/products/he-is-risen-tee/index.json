@@ -1,0 +1,26 @@
+{
+  "name": "He is Risen Tee",
+  "description": "Celebrate the power of faith and renewal with this “He Is Risen” T-shirt, featuring a beautifully illustrated empty tomb that symbolizes victory, hope, and new beginnings. Designed with a vintage sunset backdrop and detailed sketch-style artwork, this meaningful piece captures the essence of resurrection in a bold yet artistic way. Perfect for Easter, church gatherings, or everyday inspiration, this tee serves as a powerful reminder of unwavering faith and redemption. Crafted for comfort and style, it’s ideal for believers who want to express their devotion through timeless, faith-driven apparel. Wear your message with confidence and let this inspiring design speak life, hope, and the promise of resurrection wherever you go.",
+  "price": 350,
+  "images": [
+    "./images/front.jpg",
+    "./images/thumb.jpg"
+  ],
+  "sizes": [
+    "XS",
+    "S",
+    "M",
+    "L",
+    "XL",
+    "XXL"
+  ],
+  "category": "shirts",
+  "seller": "Mitch",
+  "featured": true,
+  "inStock": true,
+  "tags": [
+    "easter",
+    "lent"
+  ],
+  "date": "2026-03-19"
+}
