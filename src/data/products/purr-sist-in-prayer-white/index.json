@@ -1,0 +1,29 @@
+{
+  "name": "Purr-sist in Prayer White Tee",
+  "description": "Embrace faith with a playful twist in the Purr-sist in Prayer White Tee, featuring a praying cat and clever wordplay that reminds believers to persist in prayer and trust God’s plan.",
+  "price": 348,
+  "images": [
+    "./images/main.jpg",
+    "./images/thumb.jpg"
+  ],
+  "sizes": [
+    "XS",
+    "S",
+    "M",
+    "L",
+    "XL",
+    "XXL"
+  ],
+  "category": "shirts",
+  "seller": "Mitch",
+  "featured": true,
+  "inStock": true,
+  "tags": [
+    "faith",
+    "pets",
+    "trust",
+    "prayer",
+    "lent"
+  ],
+  "date": "2026-03-21"
+}
