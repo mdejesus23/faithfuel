@@ -1,10 +1,10 @@
 {
-  "name": "Wonderfully Made Tee",
+  "name": "Wonderfully Made Left Tee",
   "description": "Embrace your worth with this soft, Y2K-inspired tee that serves as a beautiful daily reminder that you are fearfully and wonderfully made.",
   "price": 399,
   "images": [
-    "./images/main.jpg",
-    "./images/thumb.jpg"
+    "./images/m1.jpg",
+    "./images/m2.jpg"
   ],
   "sizes": [
     "XS",
