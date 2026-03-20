@@ -4,7 +4,7 @@ import ProductCard from '../../components/ProductCard.astro';
 import { getCollection } from 'astro:content';
 
 const allProducts = (await getCollection('products')).sort((a, b) =>
-  a.data.date.localeCompare(b.data.date),
+  b.data.date.localeCompare(a.data.date),
 );
 
 const canonical = Astro.url.href;

@@ -8,8 +8,8 @@ import Hero from '@/components/home/Hero.astro';
 const canonical = Astro.url.href;
 const allProducts = (await getCollection('products'))
   .filter((p) => p.data.inStock)
-  .sort((a, b) => a.data.date.localeCompare(b.data.date));
-const featured = allProducts.filter((p) => p.data.featured).slice(0, 6);
+  .sort((a, b) => b.data.date.localeCompare(a.data.date));
+const featured = allProducts.slice(0, 6);
 ---
 
 <MainLayout
