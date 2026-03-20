@@ -1,0 +1,27 @@
+{
+  "name": "Even my mess is in His hands Tee",
+  "description": "Show your faith in God’s care with the Even My Mess Is in His Hands Tee, featuring a playful kitten tangled in yarn as a sweet reminder that He holds every part of your life—even the chaos.",
+  "price": 350,
+  "images": [
+    "./images/main.jpg",
+    "./images/thumb.jpg"
+  ],
+  "sizes": [
+    "XS",
+    "S",
+    "M",
+    "L",
+    "XL",
+    "XXL"
+  ],
+  "category": "shirts",
+  "seller": "Mitch",
+  "featured": true,
+  "inStock": true,
+  "tags": [
+    "faith",
+    "pets",
+    "trust"
+  ],
+  "date": "2026-03-21"
+}
