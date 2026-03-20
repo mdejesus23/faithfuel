@@ -1,0 +1,27 @@
+{
+  "name": "Faith Mode Activated Left Tee",
+  "description": "Switch on your spiritual strength with the Faith Mode Activated Left Tee—perfect for believers ready to live boldly, trust deeply, and walk fully in faith.",
+  "price": 350,
+  "images": [
+    "./images/main.jpg",
+    "./images/thumb.jpg"
+  ],
+  "sizes": [
+    "XS",
+    "S",
+    "M",
+    "L",
+    "XL",
+    "XXL"
+  ],
+  "category": "shirts",
+  "seller": "Mitch",
+  "featured": true,
+  "inStock": true,
+  "tags": [
+    "faith",
+    "motivation",
+    "lent"
+  ],
+  "date": "2026-03-21"
+}
