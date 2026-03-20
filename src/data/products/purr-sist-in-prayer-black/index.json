@@ -1,0 +1,28 @@
+{
+  "name": "Purr-sist in Prayer Black Tee",
+  "description": "Faith gets a fun, feline pun in the Purr-sist in Prayer Black Tee—an adorable praying cat design paired with clever wordplay encouraging believers to never stop praying.",
+  "price": 348,
+  "images": [
+    "./images/main.jpg",
+    "./images/thumb.jpg"
+  ],
+  "sizes": [
+    "XS",
+    "S",
+    "M",
+    "L",
+    "XL",
+    "XXL"
+  ],
+  "category": "shirts",
+  "seller": "Mitch",
+  "featured": true,
+  "inStock": true,
+  "tags": [
+    "faith",
+    "motivation",
+    "pets",
+    "prayer"
+  ],
+  "date": "2026-03-21"
+}
