@@ -1,0 +1,26 @@
+{
+  "name": "Walk by Faith Left Tee",
+  "description": "Let your journey be guided by trust with this sleek black tee, featuring a minimalist aesthetic that reminds you to walk by faith and not by sight. Its sharp, modern layout makes it a powerful statement piece for anyone ready to step out in confidence and embrace the path ahead.",
+  "price": 350,
+  "images": [
+    "./images/wblack1.jpg",
+    "./images/wblack2.jpg"
+  ],
+  "sizes": [
+    "XS",
+    "S",
+    "M",
+    "L",
+    "XL",
+    "XXL"
+  ],
+  "category": "shirts",
+  "seller": "EJ@",
+  "featured": true,
+  "inStock": true,
+  "tags": [
+    "christian",
+    "short quote"
+  ],
+  "date": "3-21-2026"
+}
