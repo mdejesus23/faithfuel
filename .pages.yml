@@ -67,6 +67,30 @@ content:
         type: string
         required: true
 
+  - name: customers
+    label: Customers
+    type: collection
+    path: src/data/customers
+    filename: index.json
+    fields:
+      - name: name
+        label: Name
+        type: string
+        required: true
+      - reviews: reviews
+        label: Reviews
+        type: string
+        required: false
+      - rate: rate
+        label: Rate
+        type: number
+        required: false
+      - image: image
+        label: Image Filepaths
+        type: string
+        default: ./{replace-with-the-real-image-filename.ext}
+        required: false
+
   # Privacy Policy Collection
   - name: policies
     label: Privacy Policies

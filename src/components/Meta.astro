@@ -11,6 +11,7 @@ const {
   title,
   meta = defaultProps.meta,
   structuredData = defaultProps.structuredData,
+  image,
 } = Astro.props;
 
 const URL = `${Astro.site}`; // Set the website URL in astro.config.mjs
@@ -20,13 +21,19 @@ const canonical = Astro.url.href;
 const pageTitle = title || OG.title;
 const pageDescription = meta || OG.description;
 
-const socialImageRes = await getImage({
-  src: OG.image,
-  width: 1200,
-  height: 600,
-});
-
-const socialImage = Astro.url.origin + socialImageRes.src; // Get the full URL of the image (https://stackoverflow.com/a/9858694)
+let socialImage: string;
+if (image) {
+  socialImage = image.startsWith('http')
+    ? image
+    : Astro.url.origin + image;
+} else {
+  const socialImageRes = await getImage({
+    src: OG.image,
+    width: 1200,
+    height: 600,
+  });
+  socialImage = Astro.url.origin + socialImageRes.src;
+}
 ---
 
 {

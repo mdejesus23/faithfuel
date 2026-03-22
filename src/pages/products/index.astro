@@ -43,6 +43,26 @@ const categories = ['all', ...new Set(allProducts.map((p) => p.data.category))];
   <!-- Filters + Grid -->
   <section class="bg-white py-12">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <!-- Search bar -->
+      <div class="mb-6 relative max-w-md">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 pointer-events-none"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z" />
+        </svg>
+        <input
+          id="search-input"
+          type="search"
+          placeholder="Search designs…"
+          class="w-full rounded-xl border border-gray-200 pl-9 pr-4 py-2.5 text-sm font-medium text-gray-700 placeholder-gray-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-colors"
+        />
+      </div>
+
       <!-- Category filter -->
       <div class="mb-10 flex flex-wrap gap-2" id="filter-bar">
         {
@@ -68,7 +88,12 @@ const categories = ['all', ...new Set(allProducts.map((p) => p.data.category))];
       >
         {
           allProducts.map((product) => (
-            <div data-category={product.data.category} class="product-item">
+            <div
+              data-category={product.data.category}
+              data-name={product.data.name.toLowerCase()}
+              data-description={product.data.description?.toLowerCase() ?? ''}
+              class="product-item"
+            >
               <ProductCard
                 id={product.id}
                 name={product.data.name}
@@ -149,6 +174,7 @@ const categories = ['all', ...new Set(allProducts.map((p) => p.data.category))];
 
   let currentPage = 1;
   let currentFilter = 'all';
+  let currentSearch = '';
 
   const buttons = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
   const items = document.querySelectorAll<HTMLElement>('.product-item');
@@ -161,12 +187,19 @@ const categories = ['all', ...new Set(allProducts.map((p) => p.data.category))];
     'next-page',
   ) as HTMLButtonElement | null;
   const pagination = document.getElementById('pagination');
+  const searchInput = document.getElementById('search-input') as HTMLInputElement | null;
 
   function getFilteredItems(): HTMLElement[] {
-    return Array.from(items).filter(
-      (item) =>
-        currentFilter === 'all' || item.dataset.category === currentFilter,
-    );
+    return Array.from(items).filter((item) => {
+      const matchesCategory =
+        currentFilter === 'all' || item.dataset.category === currentFilter;
+      const q = currentSearch.trim();
+      const matchesSearch =
+        q === '' ||
+        (item.dataset.name ?? '').includes(q) ||
+        (item.dataset.description ?? '').includes(q);
+      return matchesCategory && matchesSearch;
+    });
   }
 
   function renderPage() {
@@ -223,6 +256,12 @@ const categories = ['all', ...new Set(allProducts.map((p) => p.data.category))];
         .getElementById('product-grid')
         ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
+  });
+
+  searchInput?.addEventListener('input', () => {
+    currentSearch = searchInput.value.toLowerCase();
+    currentPage = 1;
+    renderPage();
   });
 
   // Initial render

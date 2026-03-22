@@ -1,0 +1,52 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+
+export async function getStaticPaths() {
+  const files = import.meta.glob('../../data/customers/*.json', {
+    eager: true,
+  });
+  return Object.entries(files).map(([path, mod]) => {
+    const slug = path.split('/').pop()!.replace('.json', '');
+    const data = mod as { name: string };
+    return { params: { slug }, props: { name: data.name } };
+  });
+}
+
+const { name } = Astro.props;
+const ogImage = `/og/customers/${Astro.params.slug}.png`;
+
+const gratitudeMessages = [
+  'Your support means everything to us. May your faith continue to fuel your journey.',
+  'Thank you for supporting FaithFuel and spreading hope!',
+  "We're grateful for your generosity in fueling faith.",
+  "Your contribution helps us share God's love through our merch.",
+  'Thank you for being part of our faith-driven mission!',
+  'May your faith be strengthened by your support today.',
+  "We're blessed by your kindness and belief in our cause.",
+  'Thank you for fueling faith with your purchase!',
+  'Your support inspires us to continue spreading the word.',
+  'Grateful for you joining us in this journey of faith.',
+];
+
+const randomMessage =
+  gratitudeMessages[Math.floor(Math.random() * gratitudeMessages.length)];
+---
+
+<MainLayout
+  title={`Thank You, ${name}`}
+  description={`A special thank you to ${name} for supporting FaithFuel.`}
+  image={ogImage}
+>
+  <section
+    class="flex min-h-[70vh] flex-col items-center justify-center bg-white px-4 text-center"
+  >
+    <p class="text-accent mb-4 text-sm font-semibold tracking-widest uppercase">
+      With Gratitude
+    </p>
+    <h1 class="text-5xl font-black sm:text-6xl">Thank You,</h1>
+    <p class="text-primary mt-2 text-4xl font-black sm:text-5xl">{name}</p>
+    <p class="mt-6 max-w-md text-lg text-gray-500">
+      {randomMessage}
+    </p>
+  </section>
+</MainLayout>

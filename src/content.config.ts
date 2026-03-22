@@ -62,9 +62,25 @@ const sizingGuideCollection = defineCollection({
   }),
 });
 
+const customers = defineCollection({
+  loader: glob({
+    pattern: '*/index.json',
+    base: './src/data/customers',
+    generateId: ({ entry }) => entry.split('/')[0],
+  }),
+  schema: ({ image }) =>
+    z.object({
+      name: z.string(),
+      reviews: z.string().optional(),
+      rate: z.number().optional(),
+      image: image().optional(),
+    }),
+});
+
 export const collections = {
   products,
   policies: privacyPolicyCollection,
   shipping: shippingPolicyCollection,
   sizingGuide: sizingGuideCollection,
+  customers,
 };
