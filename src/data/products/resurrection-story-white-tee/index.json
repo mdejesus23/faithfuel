@@ -1,0 +1,22 @@
+{
+  "name": "Resurrection Story White Tee",
+  "description": "Embrace the season of Lent with the Resurrection Story Tee—designed to reflect sacrifice, repentance, and the promise of new life in Christ.",
+  "price": 350,
+  "images": [
+    "./images/main.jpg",
+    "./images/thumb.jpg"
+  ],
+  "sizes": [
+    "XS",
+    "S",
+    "M",
+    "L",
+    "XL",
+    "XXL"
+  ],
+  "category": "shirts",
+  "seller": "@samuel",
+  "featured": false,
+  "inStock": true,
+  "date": "2026-03-23"
+}
