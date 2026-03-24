@@ -1,0 +1,31 @@
+{
+  "name": "Cross of Resurrection and Belief Front and Back Black Tee",
+  "description": "The Cross of Resurrection and Belief Front and Back Black Tee is a complete expression of faith this Lenten season, reminding us that through every struggle and sacrifice, the Cross leads us to Christ and the promise of salvation.",
+  "price": 450,
+  "images": [
+    "./images/main.jpg",
+    "./images/front.jpg",
+    "./images/back.jpg",
+    "./images/thumb1.jpg",
+    "./images/thumb2.jpg"
+  ],
+  "sizes": [
+    "XS",
+    "S",
+    "M",
+    "L",
+    "XL",
+    "XXL"
+  ],
+  "category": "shirts",
+  "seller": "Mitch15",
+  "featured": true,
+  "inStock": true,
+  "tags": [
+    "cross",
+    "faith",
+    "salvation",
+    "prayer"
+  ],
+  "date": "2026-03-24"
+}
