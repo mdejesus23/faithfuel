@@ -1,0 +1,29 @@
+{
+  "name": "Cross of Resurrection and Belief White Tee",
+  "description": "In this season of Lent, the Cross of Resurrection and Belief White Tee reflects life’s trials and the strength found in Christ—guiding us through suffering toward hope, renewal, and salvation.",
+  "price": 350,
+  "images": [
+    "./images/main.jpg",
+    "./images/thumb.jpg"
+  ],
+  "sizes": [
+    "XS",
+    "S",
+    "M",
+    "L",
+    "XL",
+    "XXL"
+  ],
+  "category": "shirts",
+  "seller": "Mitch15",
+  "featured": true,
+  "inStock": true,
+  "tags": [
+    "faith",
+    "cross",
+    "patience",
+    "prayer",
+    "lent"
+  ],
+  "date": "2026-03-24"
+}
