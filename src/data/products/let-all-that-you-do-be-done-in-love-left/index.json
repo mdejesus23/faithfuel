@@ -1,0 +1,28 @@
+{
+  "name": "Let All That You Do Be Done in Love Left Tee",
+  "description": "Carry a quiet yet powerful reminder of your faith with the “Let All That You Do Be Done in Love” Left Tee, inspired by 1 Corinthians 16:14. With its subtle left-chest design, this piece reflects a life rooted in Christ—where every action is guided by love, grace, and compassion. Perfect for everyday wear, it encourages you to live out your faith in simple but meaningful ways.",
+  "price": 350,
+  "images": [
+    "./images/main.jpg",
+    "./images/thumb.jpg"
+  ],
+  "sizes": [
+    "XS",
+    "S",
+    "M",
+    "L",
+    "XL",
+    "XXL"
+  ],
+  "category": "shirts",
+  "seller": "Mitch15",
+  "featured": true,
+  "inStock": true,
+  "tags": [
+    "Salvation",
+    "lent",
+    "bible quotes",
+    "prayer"
+  ],
+  "date": "2026-03-25"
+}
