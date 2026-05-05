@@ -1,0 +1,28 @@
+{
+  "name": "Pick Jesus Left Tee",
+  "description": "Make the best decision of your day—no pressure, but eternity is involved. Our Pick Jesus Left Tee is a fun yet meaningful reminder of the ultimate life choice, inspired by Romans 10:13: “For everyone who calls on the name of the Lord will be saved.” Designed with a clever, eye-catching “pick” graphic, this shirt adds a lighthearted twist to a powerful truth—because choosing Jesus isn’t just wise, it’s eternal.",
+  "price": 350,
+  "images": [
+    "./images/main.jpg",
+    "./images/thumb.jpg"
+  ],
+  "sizes": [
+    "XS",
+    "S",
+    "M",
+    "L",
+    "XL",
+    "XXL"
+  ],
+  "category": "shirts",
+  "seller": "Mitch15",
+  "featured": true,
+  "inStock": true,
+  "tags": [
+    "faith",
+    "salvation",
+    "jesus",
+    "music"
+  ],
+  "date": "2026-05-05"
+}
