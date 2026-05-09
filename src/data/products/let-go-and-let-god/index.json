@@ -1,0 +1,27 @@
+{
+  "name": "Let Go and Let God Tee",
+  "description": "Featuring a peaceful vintage-inspired design with a butterfly rising from an open jar, this Let Go and Let God Tee symbolizes freedom, transformation, and trusting God even when life feels messy. Butterflies don’t become beautiful by staying in the cocoon forever, and sometimes our faith grows strongest when we stop trying to control every little detail. Perfect for people who love faith-based apparel with a touch of personality and humor. Because sometimes the holiest thing we can do is pray, trust God… and stop acting like we’re the CEO of the universe.",
+  "price": 350,
+  "images": [
+    "./images/main.jpg",
+    "./images/thumb.jpg"
+  ],
+  "sizes": [
+    "XS",
+    "S",
+    "M",
+    "L",
+    "XL",
+    "XXL"
+  ],
+  "category": "shirts",
+  "seller": "Mitch15",
+  "featured": true,
+  "inStock": true,
+  "tags": [
+    "faith",
+    "motivation",
+    "trust"
+  ],
+  "date": "2026-05-09"
+}
