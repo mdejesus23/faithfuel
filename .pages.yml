@@ -162,3 +162,69 @@ content:
       - name: body
         label: Body
         type: rich-text
+
+  - name: articles
+    label: Articles
+    type: collection
+    path: src/data/articles
+    format: yaml-frontmatter
+    filename: index.mdx # saves each post in a folder with index.mdx
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: author
+        label: Author
+        type: string
+      - name: isFeatured
+        label: Featured Article
+        type: boolean
+        default: false
+        required: true
+      - name: date
+        label: Date
+        type: date
+        required: true
+      - name: excerpt
+        label: Excerpt
+        type: text
+        required: true
+      - name: image
+        label: Image Filepath
+        type: string
+        default: ./images/{replace-with-the-real-image-filename.ext}
+        type: string
+        required: true
+      - name: tags
+        label: Tags
+        type: string
+        list: true
+      - name: articleSection
+        label: Article Section (Optional)
+        type: string
+        required: false
+        description: "e.g., California Labor Law, Hiring & Compliance"
+      - name: keywords
+        label: Keywords (Optional)
+        type: string
+        list: true
+        required: false
+        description: "SEO keywords and topics (e.g., SB 1162, pay transparency)"
+        label: FAQs (Optional)
+        type: object
+        list: true
+        required: false
+        fields:
+          - name: question
+            label: Question
+            type: string
+            required: true
+          - name: answer
+            label: Answer
+            type: text
+            required: true
+      - name: body
+        label: Body
+        type: rich-text
+
