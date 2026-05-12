@@ -1,5 +1,4 @@
 ---
-import { getImage } from 'astro:assets';
 import { OG, SEO, SITE } from '@/data/constants';
 
 const defaultProps = {
@@ -27,12 +26,7 @@ if (image) {
     ? image
     : Astro.url.origin + image;
 } else {
-  const socialImageRes = await getImage({
-    src: OG.image,
-    width: 1200,
-    height: 600,
-  });
-  socialImage = Astro.url.origin + socialImageRes.src;
+  socialImage = Astro.url.origin + OG.image;
 }
 ---
 
@@ -58,7 +52,7 @@ if (image) {
 
 <!-- Facebook Meta Tags -->
 <meta property="og:locale" content="en_US" />
-<meta property="og:url" content={URL} />
+<meta property="og:url" content={canonical} />
 <meta property="og:type" content="website" />
 <meta property="og:title" content={pageTitle} />
 <meta property="og:site_name" content={SITE.title} />

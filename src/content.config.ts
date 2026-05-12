@@ -88,7 +88,6 @@ const blogCollection = defineCollection({
       excerpt: z.string(),
       image: image(),
       tags: z.array(z.string()).optional(),
-      articleSection: z.string().optional(),
       keywords: z.array(z.string()).optional(),
     }),
 });
