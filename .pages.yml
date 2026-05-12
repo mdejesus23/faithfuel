@@ -82,15 +82,15 @@ content:
         label: Name
         type: string
         required: true
-      - reviews: reviews
+      - name: reviews
         label: Reviews
         type: string
         required: false
-      - rate: rate
+      - name: rate
         label: Rate
         type: number
         required: false
-      - image: image
+      - name: image
         label: Image Filepaths
         type: string
         default: ./{replace-with-the-real-image-filename.ext}
@@ -199,36 +199,16 @@ content:
         label: Image Filepath
         type: string
         default: ./images/{replace-with-the-real-image-filename.ext}
-        type: string
         required: true
       - name: tags
         label: Tags
         type: string
         list: true
-      - name: articleSection
-        label: Article Section (Optional)
-        type: string
-        required: false
-        description: "e.g., California Labor Law, Hiring & Compliance"
       - name: keywords
         label: Keywords (Optional)
         type: string
         list: true
         required: false
-        description: "SEO keywords and topics (e.g., SB 1162, pay transparency)"
-        label: FAQs (Optional)
-        type: object
-        list: true
-        required: false
-        fields:
-          - name: question
-            label: Question
-            type: string
-            required: true
-          - name: answer
-            label: Answer
-            type: text
-            required: true
       - name: body
         label: Body
         type: rich-text
