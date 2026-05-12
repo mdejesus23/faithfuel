@@ -78,7 +78,7 @@ const customers = defineCollection({
 });
 
 const blogCollection = defineCollection({
-  loader: glob({ pattern: '**/index.mdx', base: './src/data/articles' }),
+  loader: glob({ pattern: '**/index.mdx', base: './src/data/posts' }),
   schema: ({ image }) =>
     z.object({
       title: z.string(),
@@ -94,7 +94,7 @@ const blogCollection = defineCollection({
 });
 
 export const collections = {
-  articles: blogCollection,
+  posts: blogCollection,
   products,
   policies: privacyPolicyCollection,
   shipping: shippingPolicyCollection,

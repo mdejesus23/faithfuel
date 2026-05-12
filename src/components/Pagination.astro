@@ -1,0 +1,56 @@
+---
+interface Props {
+  gridId?: string;
+}
+const { gridId = 'grid' } = Astro.props;
+---
+
+<div
+  id="pagination"
+  data-grid-id={gridId}
+  class="mt-12 flex items-center justify-center gap-3"
+>
+  <button
+    id="prev-page"
+    disabled
+    class="hover:border-primary hover:text-primary flex items-center gap-1.5 rounded-xl border border-gray-200 px-4 py-2 text-sm font-semibold text-gray-600 transition-colors disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-gray-200 disabled:hover:text-gray-600"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="h-4 w-4"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      stroke-width="2"
+    >
+      <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"
+      ></path>
+    </svg>
+    Prev
+  </button>
+
+  <span
+    id="page-info"
+    class="min-w-22.5 text-center text-sm font-semibold text-gray-500"
+  >
+    Page 1 of 1
+  </span>
+
+  <button
+    id="next-page"
+    class="hover:border-primary hover:text-primary flex items-center gap-1.5 rounded-xl border border-gray-200 px-4 py-2 text-sm font-semibold text-gray-600 transition-colors disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-gray-200 disabled:hover:text-gray-600"
+  >
+    Next
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="h-4 w-4"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      stroke-width="2"
+    >
+      <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"
+      ></path>
+    </svg>
+  </button>
+</div>

@@ -1,42 +1,39 @@
 ---
 import MainLayout from '../../layouts/MainLayout.astro';
-import ProductCard from '../../components/ProductCard.astro';
+import PostCard from '../../components/PostCard.astro';
 import Pagination from '../../components/Pagination.astro';
 import { getCollection } from 'astro:content';
 
-const allProducts = (await getCollection('products')).sort((a, b) =>
-  b.data.date.localeCompare(a.data.date),
+const canonical = Astro.url.href;
+const allPosts = (await getCollection('posts')).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime(),
 );
 
-const canonical = Astro.url.href;
-// Unique categories
-const categories = ['all', ...new Set(allProducts.map((p) => p.data.category))];
+const allTags = ['all', ...new Set(allPosts.flatMap((p) => p.data.tags ?? []))];
 ---
 
 <MainLayout
-  title="Products"
-  description="Browse all FaithFuel Catholic-inspired t-shirts. Every purchase helps send a pilgrim to World Youth Day 2027 in Seoul."
+  title="Blog"
+  description="Faith reflections, devotionals, and inspiration from the FaithFuel community."
   structuredData={{
     '@context': 'https://schema.org',
-    '@type': 'CollectionPage',
+    '@type': 'Blog',
     '@id': canonical,
-    name: 'Products',
+    name: 'FaithFuel Blog',
     description:
-      'Browse all FaithFuel Catholic-inspired t-shirts. Every purchase helps send a pilgrim to World Youth Day 2027 in Seoul.',
+      'Faith reflections, devotionals, and inspiration from the FaithFuel community.',
     url: canonical,
   }}
 >
   <!-- Hero -->
   <section class="bg-surface border-b border-gray-100 py-14">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <p
-        class="text-accent mb-2 text-sm font-semibold tracking-widest uppercase"
-      >
-        Shop
+      <p class="text-accent mb-2 text-sm font-semibold tracking-widest uppercase">
+        Blog
       </p>
-      <h1 class="text-4xl font-black sm:text-5xl">All Tees</h1>
+      <h1 class="text-4xl font-black sm:text-5xl">Faith & Reflection</h1>
       <p class="mt-3 max-w-md text-gray-500">
-        {allProducts.length} designs. Every one intentional.
+        {allPosts.length} {allPosts.length === 1 ? 'article' : 'articles'} on faith, devotion, and the journey.
       </p>
     </div>
   </section>
@@ -44,7 +41,7 @@ const categories = ['all', ...new Set(allProducts.map((p) => p.data.category))];
   <!-- Filters + Grid -->
   <section class="bg-white py-12">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <!-- Search bar -->
+      <!-- Search -->
       <div class="mb-6 relative max-w-md">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -59,52 +56,52 @@ const categories = ['all', ...new Set(allProducts.map((p) => p.data.category))];
         <input
           id="search-input"
           type="search"
-          placeholder="Search designs…"
+          placeholder="Search articles…"
           class="w-full rounded-xl border border-gray-200 pl-9 pr-4 py-2.5 text-sm font-medium text-gray-700 placeholder-gray-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-colors"
         />
       </div>
 
-      <!-- Category filter -->
-      <div class="mb-10 flex flex-wrap gap-2" id="filter-bar">
-        {
-          categories.map((cat) => (
-            <button
-              data-filter={cat}
-              class={`filter-btn rounded-full border px-4 py-2 text-sm font-semibold capitalize transition-all ${
-                cat === 'all'
-                  ? 'bg-primary border-primary text-white'
-                  : 'border-gray-200 text-gray-600 hover:border-gray-400'
-              }`}
-            >
-              {cat}
-            </button>
-          ))
-        }
-      </div>
+      <!-- Tag filter -->
+      {
+        allTags.length > 1 && (
+          <div class="mb-10 flex flex-wrap gap-2" id="filter-bar">
+            {allTags.map((tag) => (
+              <button
+                data-filter={tag}
+                class={`filter-btn rounded-full border px-4 py-2 text-sm font-semibold capitalize transition-all ${
+                  tag === 'all'
+                    ? 'bg-primary border-primary text-white'
+                    : 'border-gray-200 text-gray-600 hover:border-gray-400'
+                }`}
+              >
+                {tag}
+              </button>
+            ))}
+          </div>
+        )
+      }
 
       <!-- Grid -->
       <div
-        class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-        id="product-grid"
+        class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
+        id="post-grid"
       >
         {
-          allProducts.map((product) => (
+          allPosts.map((post) => (
             <div
-              data-category={product.data.category}
-              data-name={product.data.name.toLowerCase()}
-              data-description={product.data.description?.toLowerCase() ?? ''}
-              class="product-item"
+              data-tags={JSON.stringify(post.data.tags ?? [])}
+              data-title={post.data.title.toLowerCase()}
+              data-excerpt={post.data.excerpt.toLowerCase()}
+              class="post-item"
             >
-              <ProductCard
-                id={product.id}
-                name={product.data.name}
-                description={product.data.description}
-                price={product.data.price}
-                image={product.data.images[0]}
-                sizes={product.data.sizes}
-                category={product.data.category}
-                inStock={product.data.inStock}
-                seller={product.data.seller}
+              <PostCard
+                id={post.id}
+                title={post.data.title}
+                excerpt={post.data.excerpt}
+                author={post.data.author}
+                date={post.data.date}
+                image={post.data.image}
+                tags={post.data.tags}
               />
             </div>
           ))
@@ -113,44 +110,41 @@ const categories = ['all', ...new Set(allProducts.map((p) => p.data.category))];
 
       <!-- Empty state -->
       <div id="empty-state" class="hidden py-20 text-center text-gray-400">
-        <p class="text-lg font-semibold">No products in this category yet.</p>
+        <p class="text-lg font-semibold">No articles found.</p>
       </div>
 
-      <Pagination gridId="product-grid" />
+      <Pagination gridId="post-grid" />
     </div>
   </section>
 </MainLayout>
 
 <script>
-  const ITEMS_PER_PAGE = 16;
+  const ITEMS_PER_PAGE = 9;
 
   let currentPage = 1;
   let currentFilter = 'all';
   let currentSearch = '';
 
   const buttons = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
-  const items = document.querySelectorAll<HTMLElement>('.product-item');
+  const items = document.querySelectorAll<HTMLElement>('.post-item');
   const emptyState = document.getElementById('empty-state');
   const pageInfo = document.getElementById('page-info');
-  const prevBtn = document.getElementById(
-    'prev-page',
-  ) as HTMLButtonElement | null;
-  const nextBtn = document.getElementById(
-    'next-page',
-  ) as HTMLButtonElement | null;
+  const prevBtn = document.getElementById('prev-page') as HTMLButtonElement | null;
+  const nextBtn = document.getElementById('next-page') as HTMLButtonElement | null;
   const pagination = document.getElementById('pagination');
   const searchInput = document.getElementById('search-input') as HTMLInputElement | null;
+  const gridId = pagination?.dataset.gridId ?? 'post-grid';
 
   function getFilteredItems(): HTMLElement[] {
     return Array.from(items).filter((item) => {
-      const matchesCategory =
-        currentFilter === 'all' || item.dataset.category === currentFilter;
+      const tags: string[] = JSON.parse(item.dataset.tags ?? '[]');
+      const matchesTag = currentFilter === 'all' || tags.includes(currentFilter);
       const q = currentSearch.trim();
       const matchesSearch =
         q === '' ||
-        (item.dataset.name ?? '').includes(q) ||
-        (item.dataset.description ?? '').includes(q);
-      return matchesCategory && matchesSearch;
+        (item.dataset.title ?? '').includes(q) ||
+        (item.dataset.excerpt ?? '').includes(q);
+      return matchesTag && matchesSearch;
     });
   }
 
@@ -189,8 +183,6 @@ const categories = ['all', ...new Set(allProducts.map((p) => p.data.category))];
     });
   });
 
-  const gridId = pagination?.dataset.gridId ?? 'product-grid';
-
   prevBtn?.addEventListener('click', () => {
     if (currentPage > 1) {
       currentPage--;
@@ -214,6 +206,5 @@ const categories = ['all', ...new Set(allProducts.map((p) => p.data.category))];
     renderPage();
   });
 
-  // Initial render
   renderPage();
 </script>

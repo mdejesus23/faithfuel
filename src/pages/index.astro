@@ -1,6 +1,7 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
 import ProductCard from '../components/ProductCard.astro';
+import PostCard from '../components/PostCard.astro';
 import { getCollection } from 'astro:content';
 import { ChevronRight } from '@lucide/astro';
 import Hero from '@/components/home/Hero.astro';
@@ -10,6 +11,10 @@ const allProducts = (await getCollection('products'))
   .filter((p) => p.data.inStock)
   .sort((a, b) => b.data.date.localeCompare(a.data.date));
 const featured = allProducts.slice(0, 6);
+
+const featuredPosts = (await getCollection('posts'))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 3);
 ---
 
 <MainLayout
@@ -75,6 +80,56 @@ const featured = allProducts.slice(0, 6);
       </div>
     </div>
   </section>
+
+  <!-- Featured Posts -->
+  {
+    featuredPosts.length > 0 && (
+      <section class="bg-surface py-24">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="mb-12 flex items-end justify-between">
+            <div>
+              <p class="text-accent mb-2 text-sm font-semibold tracking-widest uppercase">
+                From the Blog
+              </p>
+              <h2 class="text-3xl font-black sm:text-4xl">
+                Faith & Reflection
+              </h2>
+            </div>
+            <a
+              href="/posts"
+              class="hover:text-accent hidden items-center gap-1 text-sm font-semibold text-gray-500 transition-colors sm:inline-flex"
+            >
+              View all
+              <ChevronRight class="h-4 w-4" />
+            </a>
+          </div>
+
+          <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {featuredPosts.map((post) => (
+              <PostCard
+                id={post.id}
+                title={post.data.title}
+                excerpt={post.data.excerpt}
+                author={post.data.author}
+                date={post.data.date}
+                image={post.data.image}
+                tags={post.data.tags}
+              />
+            ))}
+          </div>
+
+          <div class="mt-10 text-center sm:hidden">
+            <a
+              href="/posts"
+              class="text-accent text-sm font-semibold hover:underline"
+            >
+              View all posts →
+            </a>
+          </div>
+        </div>
+      </section>
+    )
+  }
 
   <!-- Brand Statement -->
   <section class="bg-surface py-24">
