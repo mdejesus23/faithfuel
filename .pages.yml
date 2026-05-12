@@ -6,8 +6,8 @@ media:
 
   - name: articles_images
     label: Article's Images
-    input: src/data/articles
-    output: src/data/articles
+    input: src/data/posts
+    output: src/data/posts
 
 content:
   - name: products
