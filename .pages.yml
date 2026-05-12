@@ -5,7 +5,7 @@ media:
     output: src/data/products
 
   - name: articles_images
-    label: Article's Images
+    label: Posts' Images
     input: src/data/posts
     output: src/data/posts
 
