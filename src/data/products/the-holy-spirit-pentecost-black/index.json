@@ -1,0 +1,13 @@
+{
+  "name": "The Holy Spirit Pentecost Black Tee",
+  "description": "The Holy Spirit Pentecost Black Tee celebrates the coming of the Holy Spirit at Pentecost—a symbol of faith, renewal, and divine guidance. Inspired by the Spirit who gives us strength through life’s struggles, this design reminds us that we are never alone as we walk in faith and follow Christ toward salvation.",
+  "price": 499,
+  "images": ["./images/main.jpg", "./images/thumb.jpg"],
+  "sizes": ["XS", "S", "M", "L", "XL", "XXL"],
+  "category": "Shirts",
+  "seller": "Mitch15",
+  "featured": true,
+  "inStock": true,
+  "tags": ["Salvation", "Pentecost", "holy spirit"],
+  "date": "2026-08-17"
+}
