@@ -1,0 +1,22 @@
+{
+  "name": "Once Lost, Now Found Tee",
+  "description": "Wear this heartwarming tee as a sweet reminder that you are never forgotten, for the Good Shepherd would leave the ninety-nine just to find the one who was lost.",
+  "price": 350,
+  "images": [
+    "./images/found1.jpg",
+    "./images/found2.jpg"
+  ],
+  "sizes": [
+    "XS",
+    "S",
+    "M",
+    "L",
+    "XL",
+    "XXL"
+  ],
+  "category": "shirts",
+  "seller": "EJ@",
+  "featured": false,
+  "inStock": true,
+  "date": "2026-04-27"
+}

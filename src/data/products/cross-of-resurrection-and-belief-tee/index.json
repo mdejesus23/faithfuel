@@ -1,0 +1,22 @@
+{
+  "name": "Cross of Resurrection and Belief Tee",
+  "description": "Walk through Lent with the Cross of Resurrection Tee—a powerful reminder of Christ’s sacrifice and the hope of new life.",
+  "price": 350,
+  "images": [
+    "./images/main.jpg",
+    "./images/thumb.jpg"
+  ],
+  "sizes": [
+    "XS",
+    "S",
+    "M",
+    "L",
+    "XL",
+    "XXL"
+  ],
+  "category": "shirts",
+  "seller": "Mitch",
+  "featured": false,
+  "inStock": true,
+  "date": "2026-03-23"
+}

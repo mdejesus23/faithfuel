@@ -5,10 +5,12 @@ import preact from '@astrojs/preact';
 
 import sitemap from '@astrojs/sitemap';
 
+import mdx from '@astrojs/mdx';
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://faithfuel.melnerdz.com',
-  integrations: [preact({ compat: true }), sitemap()],
+  integrations: [preact({ compat: true }), sitemap(), mdx()],
   vite: {
     plugins: [tailwindcss()],
   },

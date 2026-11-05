@@ -1,0 +1,38 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+
+const files = import.meta.glob('../../data/customers/*.json', { eager: true });
+
+const customers = Object.entries(files).map(([path, mod]) => {
+  const slug = path.split('/').pop()!.replace('.json', '');
+  const data = mod as { name: string };
+  return { slug, name: data.name };
+}).sort((a, b) => a.name.localeCompare(b.name));
+---
+
+<MainLayout title="Customers" description="A thank you to all our FaithFuel customers.">
+  <section class="bg-surface border-b border-gray-100 py-14">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <p class="text-accent mb-2 text-sm font-semibold tracking-widest uppercase">Community</p>
+      <h1 class="text-4xl font-black sm:text-5xl">Our Customers</h1>
+      <p class="mt-3 max-w-md text-gray-500">Thank you for your support and faith.</p>
+    </div>
+  </section>
+
+  <section class="bg-white py-12">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <ul class="divide-y divide-gray-100">
+        {customers.map(({ slug, name }) => (
+          <li>
+            <a
+              href={`/customers/${slug}`}
+              class="flex items-center py-4 text-lg font-medium text-gray-800 hover:text-primary transition-colors"
+            >
+              {name}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</MainLayout>

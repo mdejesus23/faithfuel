@@ -1,0 +1,40 @@
+---
+import { getEntry, render } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import MainLayout from '@/layouts/MainLayout.astro';
+import Prose from '@/components/Prose.astro';
+
+const entry = await getEntry('shipping', 'shipping');
+
+if (!entry) {
+  return Astro.redirect('/404');
+}
+
+const canonical = Astro.url.href;
+const typedEntry: CollectionEntry<'shipping'> = entry;
+const { Content } = await render(typedEntry);
+
+const title = typedEntry.data.title;
+const description = typedEntry.data.description;
+---
+
+<MainLayout
+  title={title}
+  structuredData={{
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': canonical,
+    url: canonical,
+    name: title,
+    description: description,
+    inLanguage: 'en-US',
+  }}
+>
+  <section class="mx-auto max-w-5xl px-6 py-16">
+    <div class="mx-auto max-w-6xl">
+      <Prose>
+        <Content />
+      </Prose>
+    </div>
+  </section>
+</MainLayout>

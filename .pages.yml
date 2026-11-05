@@ -4,12 +4,17 @@ media:
     input: src/data/products
     output: src/data/products
 
+  - name: articles_images
+    label: Posts Images
+    input: src/data/posts
+    output: src/data/posts
+
 content:
   - name: products
     label: Products
     type: collection
     path: src/data/products
-    filename: '{slug}/index.json'
+    filename: index.json
     fields:
       - name: name
         label: Name
@@ -62,3 +67,148 @@ content:
         label: Tags
         type: string
         list: true
+      - name: date
+        label: Date
+        type: string
+        required: true
+
+  - name: customers
+    label: Customers
+    type: collection
+    path: src/data/customers
+    filename: index.json
+    fields:
+      - name: name
+        label: Name
+        type: string
+        required: true
+      - name: reviews
+        label: Reviews
+        type: string
+        required: false
+      - name: rate
+        label: Rate
+        type: number
+        required: false
+      - name: image
+        label: Image Filepaths
+        type: string
+        default: ./{replace-with-the-real-image-filename.ext}
+        required: false
+
+  # Privacy Policy Collection
+  - name: policies
+    label: Privacy Policies
+    type: collection
+    path: src/data/privacy
+    format: yaml-frontmatter
+    filename: index.md
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: description
+        label: Description
+        type: text
+        required: true
+      - name: lastUpdated
+        label: Last Updated
+        type: string
+        required: true
+      - name: body
+        label: Body
+        type: rich-text
+
+  # Shipping and Return Collection
+  - name: shipping
+    label: Shipping and Returns
+    type: collection
+    path: src/data/shipping
+    format: yaml-frontmatter
+    filename: index.md
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: description
+        label: Description
+        type: text
+        required: true
+      - name: lastUpdated
+        label: Last Updated
+        type: string
+        required: true
+      - name: body
+        label: Body
+        type: rich-text
+
+  # Sizing Guide Collection
+  - name: sizingGuide
+    label: Sizing Guide
+    type: collection
+    path: src/data/sizing-guide
+    format: yaml-frontmatter
+    filename: index.md
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: description
+        label: Description
+        type: text
+        required: true
+      - name: lastUpdated
+        label: Last Updated
+        type: string
+        required: true
+      - name: body
+        label: Body
+        type: rich-text
+
+  - name: posts
+    label: Posts
+    type: collection
+    path: src/data/posts
+    format: yaml-frontmatter
+    filename: index.mdx # saves each post in a folder with index.mdx
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: author
+        label: Author
+        type: string
+      - name: isFeatured
+        label: Featured Article
+        type: boolean
+        default: false
+        required: true
+      - name: date
+        label: Date
+        type: date
+        required: true
+      - name: excerpt
+        label: Excerpt
+        type: text
+        required: true
+      - name: image
+        label: Image Filepath
+        type: string
+        default: ./images/{replace-with-the-real-image-filename.ext}
+        required: true
+      - name: tags
+        label: Tags
+        type: string
+        list: true
+      - name: keywords
+        label: Keywords (Optional)
+        type: string
+        list: true
+        required: false
+      - name: body
+        label: Body
+        type: rich-text

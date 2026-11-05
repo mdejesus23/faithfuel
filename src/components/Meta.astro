@@ -1,5 +1,4 @@
 ---
-import { getImage } from 'astro:assets';
 import { OG, SEO, SITE } from '@/data/constants';
 
 const defaultProps = {
@@ -11,6 +10,7 @@ const {
   title,
   meta = defaultProps.meta,
   structuredData = defaultProps.structuredData,
+  image,
 } = Astro.props;
 
 const URL = `${Astro.site}`; // Set the website URL in astro.config.mjs
@@ -20,13 +20,14 @@ const canonical = Astro.url.href;
 const pageTitle = title || OG.title;
 const pageDescription = meta || OG.description;
 
-const socialImageRes = await getImage({
-  src: OG.image,
-  width: 1200,
-  height: 600,
-});
-
-const socialImage = Astro.url.origin + socialImageRes.src; // Get the full URL of the image (https://stackoverflow.com/a/9858694)
+let socialImage: string;
+if (image) {
+  socialImage = image.startsWith('http')
+    ? image
+    : Astro.url.origin + image;
+} else {
+  socialImage = Astro.url.origin + OG.image;
+}
 ---
 
 {
@@ -51,7 +52,7 @@ const socialImage = Astro.url.origin + socialImageRes.src; // Get the full URL o
 
 <!-- Facebook Meta Tags -->
 <meta property="og:locale" content="en_US" />
-<meta property="og:url" content={URL} />
+<meta property="og:url" content={canonical} />
 <meta property="og:type" content="website" />
 <meta property="og:title" content={pageTitle} />
 <meta property="og:site_name" content={SITE.title} />

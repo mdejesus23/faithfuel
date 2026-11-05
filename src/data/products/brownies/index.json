@@ -1,0 +1,13 @@
+{
+  "name": "Brownies Tee",
+  "description": "This rich chocolate brown tee features a simple, elegant cross graphic on the front. Soft and comfortable, it's perfect for everyday wear or as a subtle statement of faith.",
+  "price": 149,
+  "sizes": ["regular"],
+  "images": ["./images/thumb.jpg"],
+  "category": "food",
+  "seller": "May",
+  "featured": true,
+  "inStock": true,
+  "tags": ["chocolate", "dessert"],
+  "date": "2026-02-25"
+}

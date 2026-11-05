@@ -1,0 +1,27 @@
+{
+  "name": "Coffee As a Message of Grace Tee",
+  "description": "Wear your faith daily with the “Coffee as a Message of Grace” Tee—a reminder that just like your morning cup, God’s grace is freely given, comforting, and enough to sustain you through every moment of the day.",
+  "price": 350,
+  "images": [
+    "./images/main.jpg",
+    "./images/thumb.jpg"
+  ],
+  "sizes": [
+    "XS",
+    "S",
+    "M",
+    "L",
+    "XL",
+    "XXL"
+  ],
+  "category": "shirts",
+  "seller": "Mitch15",
+  "featured": true,
+  "inStock": true,
+  "tags": [
+    "faith",
+    "coffee",
+    "grace"
+  ],
+  "date": "2026-05-05"
+}

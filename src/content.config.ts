@@ -13,13 +13,74 @@ const products = defineCollection({
       description: z.string(),
       price: z.number(),
       images: z.array(image()),
-      sizes: z.array(z.enum(['XS', 'S', 'M', 'L', 'XL', 'XXL'])),
+      sizes: z.array(z.enum(['XS', 'S', 'M', 'L', 'XL', 'XXL', 'regular'])),
       category: z.string(),
       seller: z.string(),
       featured: z.boolean().default(false),
       inStock: z.boolean().default(true),
       tags: z.array(z.string()).optional(),
+      date: z.string(),
     }),
 });
 
-export const collections = { products };
+const privacyPolicyCollection = defineCollection({
+  loader: glob({
+    pattern: 'index.md',
+    base: './src/data/privacy',
+    generateId: () => 'privacy',
+  }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    lastUpdated: z.string(),
+  }),
+});
+
+const shippingPolicyCollection = defineCollection({
+  loader: glob({
+    pattern: 'index.md',
+    base: './src/data/shipping',
+    generateId: () => 'shipping',
+  }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    lastUpdated: z.string(),
+  }),
+});
+
+const sizingGuideCollection = defineCollection({
+  loader: glob({
+    pattern: 'index.md',
+    base: './src/data/sizing-guide',
+    generateId: () => 'sizing-guide',
+  }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    lastUpdated: z.string(),
+  }),
+});
+
+const blogCollection = defineCollection({
+  loader: glob({ pattern: '**/index.mdx', base: './src/data/posts' }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      author: z.string(),
+      isFeatured: z.boolean().optional().default(false),
+      date: z.date(),
+      excerpt: z.string(),
+      image: image(),
+      tags: z.array(z.string()).optional(),
+      keywords: z.array(z.string()).optional(),
+    }),
+});
+
+export const collections = {
+  posts: blogCollection,
+  products,
+  policies: privacyPolicyCollection,
+  shipping: shippingPolicyCollection,
+  sizingGuide: sizingGuideCollection,
+};

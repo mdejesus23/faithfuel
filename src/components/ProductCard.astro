@@ -31,41 +31,57 @@ const {
   class="group flex flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white transition-all duration-300 hover:shadow-lg"
 >
   <!-- Image -->
-  <a
-    href={`/products/${id}`}
-    class="bg-surface relative block aspect-square overflow-hidden"
-  >
-    <Image
-      src={image}
-      alt={name}
-      loading="lazy"
-      class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-    />
-    {
-      !inStock && (
+  {
+    inStock ? (
+      <a
+        href={`/products/${id}`}
+        class="bg-surface relative block aspect-square overflow-hidden"
+      >
+        <Image
+          src={image}
+          alt={name}
+          loading="lazy"
+          class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+        <span class="absolute top-3 left-3 rounded-full bg-white px-2.5 py-1 text-xs font-medium text-gray-500 capitalize">
+          {category}
+        </span>
+      </a>
+    ) : (
+      <div class="bg-surface relative block aspect-square cursor-not-allowed overflow-hidden">
+        <Image
+          src={image}
+          alt={name}
+          loading="lazy"
+          class="h-full w-full object-cover"
+        />
         <div class="absolute inset-0 flex items-center justify-center bg-white/70">
           <span class="bg-primary rounded-full px-3 py-1 text-xs font-semibold text-white">
             Out of Stock
           </span>
         </div>
-      )
-    }
-    <span
-      class="absolute top-3 left-3 rounded-full bg-white px-2.5 py-1 text-xs font-medium text-gray-500 capitalize"
-    >
-      {category}
-    </span>
-  </a>
+        <span class="absolute top-3 left-3 rounded-full bg-white px-2.5 py-1 text-xs font-medium text-gray-500 capitalize">
+          {category}
+        </span>
+      </div>
+    )
+  }
 
   <!-- Info -->
   <div class="flex flex-1 flex-col p-5">
-    <a href={`/products/${id}`}>
-      <h2
-        class="hover:text-accent leading-snug font-bold text-gray-900 transition-colors"
-      >
-        {name}
-      </h2>
-    </a>
+    {
+      inStock ? (
+        <a href={`/products/${id}`}>
+          <h2 class="hover:text-accent leading-snug font-bold text-gray-900 transition-colors">
+            {name}
+          </h2>
+        </a>
+      ) : (
+        <h2 class="cursor-not-allowed leading-snug font-bold text-gray-900 opacity-60">
+          {name}
+        </h2>
+      )
+    }
     <p class="mt-1 text-xs text-gray-400">by {seller}</p>
     <p class="mt-1.5 line-clamp-2 text-sm leading-relaxed text-gray-500">
       {description}

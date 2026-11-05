@@ -1,0 +1,28 @@
+{
+  "name": "Cross of Resurrection and Belief Left Black Tee",
+  "description": "Set on black, this Cross of Resurrection and Belief Left Tee symbolizes the weight of our struggles and the light of Christ that leads us through suffering into new life.",
+  "price": 350,
+  "images": [
+    "./images/main.jpg",
+    "./images/thumb.jpg"
+  ],
+  "sizes": [
+    "XS",
+    "S",
+    "M",
+    "L",
+    "XL",
+    "XXL"
+  ],
+  "category": "shirts",
+  "seller": "Mitch15",
+  "featured": true,
+  "inStock": true,
+  "tags": [
+    "cross",
+    "lent",
+    "salvation",
+    "prayer"
+  ],
+  "date": "2026-03-24"
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Carried by Hope White Tee",
+  "description": "Embrace faith and inspiration with the Carried by Hope White Tee, featuring a heartfelt design that reflects trust in God’s guidance and the strength found in His love. Perfect for daily wear or as a meaningful gift for believers.",
+  "price": 350,
+  "images": [
+    "./images/main.jpg",
+    "./images/thumb.jpg"
+  ],
+  "sizes": [
+    "XS",
+    "S",
+    "M",
+    "L",
+    "XL",
+    "XXL"
+  ],
+  "category": "shirts",
+  "seller": "nerdz23",
+  "featured": true,
+  "inStock": true,
+  "tags": [
+    "faith",
+    "hope",
+    "lent"
+  ],
+  "date": "2026-03-21"
+}

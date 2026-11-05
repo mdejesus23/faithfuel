@@ -1,0 +1,62 @@
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+---
+
+<MainLayout title="Page Not Found">
+  <section
+    class="flex h-full flex-col items-center justify-center px-6 py-16 text-center"
+  >
+    <div class="max-w-xl">
+      <!-- Lost Sheep Icon -->
+      <div class="mb-6 text-8xl">🐑</div>
+
+      <h1
+        class="mb-4 text-6xl font-bold text-neutral-800 dark:text-neutral-100"
+      >
+        404
+      </h1>
+
+      <h2
+        class="mb-6 text-2xl font-semibold text-neutral-700 dark:text-neutral-200"
+      >
+        This page has wandered off...
+      </h2>
+
+      <p class="mb-4 text-lg text-neutral-600 dark:text-neutral-400">
+        Like one of the 99 sheep, this page seems to have gotten lost.
+        <br />
+        But don't worry — <em
+          >the Good Shepherd leaves the 99 to find the one.</em
+        >
+      </p>
+
+      <p class="mb-8 text-neutral-500 dark:text-neutral-500">
+        "I once was lost, but now I'm found." — Unfortunately, this page hasn't
+        had that experience yet.
+      </p>
+
+      <div
+        class="flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
+      >
+        <a
+          href="/"
+          class="rounded-lg bg-neutral-800 px-6 py-3 font-medium text-white transition hover:bg-neutral-700 dark:bg-neutral-100 dark:text-neutral-900 dark:hover:bg-neutral-200"
+        >
+          Return to the Flock
+        </a>
+        <a
+          href="/products"
+          class="rounded-lg border border-neutral-300 px-6 py-3 font-medium text-neutral-700 transition hover:bg-neutral-100 dark:border-neutral-600 dark:text-neutral-300 dark:hover:bg-neutral-800"
+        >
+          Browse Products
+        </a>
+      </div>
+
+      <p class="mt-12 text-sm text-neutral-400 dark:text-neutral-600">
+        Luke 15:4 — "Suppose one of you has a hundred sheep and loses one of
+        them. Doesn't he leave the ninety-nine in the open country and go after
+        the lost sheep until he finds it?"
+      </p>
+    </div>
+  </section>
+</MainLayout>

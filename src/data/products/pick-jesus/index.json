@@ -1,0 +1,28 @@
+{
+  "name": "Pick Jesus Tee",
+  "description": "Choose boldly, wear it proudly—our Pick Jesus Tee is more than just a statement piece; it’s a daily reminder of the greatest decision you’ll ever make. Inspired by Romans 10:13, “For everyone who calls on the name of the Lord will be saved,” this design playfully echoes a familiar “pick” shape while pointing to a life-changing truth: when it comes to eternity, Jesus is always the right choice.",
+  "price": 350,
+  "images": [
+    "./images/main.jpg",
+    "./images/thumb.jpg"
+  ],
+  "sizes": [
+    "XS",
+    "S",
+    "M",
+    "L",
+    "XL",
+    "XXL"
+  ],
+  "category": "shirts",
+  "seller": "Mitch15",
+  "featured": true,
+  "inStock": true,
+  "tags": [
+    "faith",
+    "salvation",
+    "music",
+    "holy"
+  ],
+  "date": "2026-05-05"
+}

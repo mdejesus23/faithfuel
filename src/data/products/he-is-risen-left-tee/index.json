@@ -1,0 +1,26 @@
+{
+  "name": "He is Risen Left Tee",
+  "description": "Faith-inspired “He Is Risen” T-shirt featuring an artistic empty tomb design symbolizing hope, resurrection, and new beginnings.",
+  "price": 350,
+  "images": [
+    "./images/left.jpg",
+    "./images/thumb.jpg"
+  ],
+  "sizes": [
+    "XS",
+    "S",
+    "M",
+    "L",
+    "XL",
+    "XXL"
+  ],
+  "category": "shirts",
+  "seller": "Mitch",
+  "featured": true,
+  "inStock": true,
+  "tags": [
+    "lent",
+    "easter"
+  ],
+  "date": "2026-03-19"
+}

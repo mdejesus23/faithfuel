@@ -1,0 +1,27 @@
+{
+  "name": "Carried by Hope Black Tee",
+  "description": "Celebrate faith and God’s promises with the Carried by Hope Black Tee, featuring a soaring dove holding an olive branch. This inspiring Christian design reminds you to carry hope and light through every challenge.",
+  "price": 350,
+  "images": [
+    "./images/main.jpg",
+    "./images/thumb.jpg"
+  ],
+  "sizes": [
+    "XS",
+    "S",
+    "M",
+    "L",
+    "XL",
+    "XXL"
+  ],
+  "category": "shirts",
+  "seller": "nerdz23",
+  "featured": true,
+  "inStock": true,
+  "tags": [
+    "faith",
+    "hope",
+    "lent"
+  ],
+  "date": "2026-03-21"
+}

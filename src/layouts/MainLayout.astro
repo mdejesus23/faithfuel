@@ -24,6 +24,12 @@ const { title, description, image, structuredData } = Astro.props;
       image={image}
       structuredData={structuredData}
     />
+
+    <script
+      defer
+      src="https://cloud.umami.is/script.js"
+      data-website-id="ddcf83ab-b64f-43a1-9734-6bc9d729cf2b"></script>
+
     <slot name="head" />
     <!-- Preload Inter font -->
     <link

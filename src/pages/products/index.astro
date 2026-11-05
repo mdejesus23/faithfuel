@@ -1,9 +1,12 @@
 ---
 import MainLayout from '../../layouts/MainLayout.astro';
 import ProductCard from '../../components/ProductCard.astro';
+import Pagination from '../../components/Pagination.astro';
 import { getCollection } from 'astro:content';
 
-const allProducts = await getCollection('products');
+const allProducts = (await getCollection('products')).sort((a, b) =>
+  b.data.date.localeCompare(a.data.date),
+);
 
 const canonical = Astro.url.href;
 // Unique categories
@@ -41,6 +44,29 @@ const categories = ['all', ...new Set(allProducts.map((p) => p.data.category))];
   <!-- Filters + Grid -->
   <section class="bg-white py-12">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <!-- Search bar -->
+      <div class="relative mb-6 max-w-md">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="pointer-events-none absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-gray-400"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z"></path>
+        </svg>
+        <input
+          id="search-input"
+          type="search"
+          placeholder="Search designs…"
+          class="focus:border-primary focus:ring-primary/20 w-full rounded-xl border border-gray-200 py-2.5 pr-4 pl-9 text-sm font-medium text-gray-700 placeholder-gray-400 transition-colors focus:ring-2 focus:outline-none"
+        />
+      </div>
+
       <!-- Category filter -->
       <div class="mb-10 flex flex-wrap gap-2" id="filter-bar">
         {
@@ -66,7 +92,12 @@ const categories = ['all', ...new Set(allProducts.map((p) => p.data.category))];
       >
         {
           allProducts.map((product) => (
-            <div data-category={product.data.category} class="product-item">
+            <div
+              data-category={product.data.category}
+              data-name={product.data.name.toLowerCase()}
+              data-description={product.data.description?.toLowerCase() ?? ''}
+              class="product-item"
+            >
               <ProductCard
                 id={product.id}
                 name={product.data.name}
@@ -88,65 +119,17 @@ const categories = ['all', ...new Set(allProducts.map((p) => p.data.category))];
         <p class="text-lg font-semibold">No products in this category yet.</p>
       </div>
 
-      <!-- Pagination -->
-      <div id="pagination" class="mt-12 flex items-center justify-center gap-3">
-        <button
-          id="prev-page"
-          disabled
-          class="hover:border-primary hover:text-primary flex items-center gap-1.5 rounded-xl border border-gray-200 px-4 py-2 text-sm font-semibold text-gray-600 transition-colors disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-gray-200 disabled:hover:text-gray-600"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-4 w-4"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M15 19l-7-7 7-7"></path>
-          </svg>
-          Prev
-        </button>
-
-        <span
-          id="page-info"
-          class="min-w-22.5 text-center text-sm font-semibold text-gray-500"
-        >
-          Page 1 of 1
-        </span>
-
-        <button
-          id="next-page"
-          class="hover:border-primary hover:text-primary flex items-center gap-1.5 rounded-xl border border-gray-200 px-4 py-2 text-sm font-semibold text-gray-600 transition-colors disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-gray-200 disabled:hover:text-gray-600"
-        >
-          Next
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-4 w-4"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M9 5l7 7-7 7"></path>
-          </svg>
-        </button>
-      </div>
+      <Pagination gridId="product-grid" />
     </div>
   </section>
 </MainLayout>
 
 <script>
-  const ITEMS_PER_PAGE = 8;
+  const ITEMS_PER_PAGE = 16;
 
   let currentPage = 1;
   let currentFilter = 'all';
+  let currentSearch = '';
 
   const buttons = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
   const items = document.querySelectorAll<HTMLElement>('.product-item');
@@ -159,12 +142,21 @@ const categories = ['all', ...new Set(allProducts.map((p) => p.data.category))];
     'next-page',
   ) as HTMLButtonElement | null;
   const pagination = document.getElementById('pagination');
+  const searchInput = document.getElementById(
+    'search-input',
+  ) as HTMLInputElement | null;
 
   function getFilteredItems(): HTMLElement[] {
-    return Array.from(items).filter(
-      (item) =>
-        currentFilter === 'all' || item.dataset.category === currentFilter,
-    );
+    return Array.from(items).filter((item) => {
+      const matchesCategory =
+        currentFilter === 'all' || item.dataset.category === currentFilter;
+      const q = currentSearch.trim();
+      const matchesSearch =
+        q === '' ||
+        (item.dataset.name ?? '').includes(q) ||
+        (item.dataset.description ?? '').includes(q);
+      return matchesCategory && matchesSearch;
+    });
   }
 
   function renderPage() {
@@ -202,12 +194,14 @@ const categories = ['all', ...new Set(allProducts.map((p) => p.data.category))];
     });
   });
 
+  const gridId = pagination?.dataset.gridId ?? 'product-grid';
+
   prevBtn?.addEventListener('click', () => {
     if (currentPage > 1) {
       currentPage--;
       renderPage();
       document
-        .getElementById('product-grid')
+        .getElementById(gridId)
         ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   });
@@ -218,9 +212,15 @@ const categories = ['all', ...new Set(allProducts.map((p) => p.data.category))];
       currentPage++;
       renderPage();
       document
-        .getElementById('product-grid')
+        .getElementById(gridId)
         ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
+  });
+
+  searchInput?.addEventListener('input', () => {
+    currentSearch = searchInput.value.toLowerCase();
+    currentPage = 1;
+    renderPage();
   });
 
   // Initial render
